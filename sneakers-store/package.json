@@ -1,18 +1,24 @@
 {
   "name": "sneakers-store",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A fully functional sneakers e-commerce store",
+  "main": "backend/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "ecommerce",
+    "sneakers",
+    "nodejs",
+    "express"
+  ],
+  "author": "Aayush Kumar",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^4.18.2"
   },
   "devDependencies": {
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.0.1"
   }
 }
