@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import connectDB from "./config/db.js";
+import productRoutes from "./routes/productRoutes.js";
 
 // Load environment variables
 dotenv.config();
@@ -13,15 +14,18 @@ connectDB();
 const app = express();
 
 // Middleware
-app.use(cors());            // Enables cross-origin requests
-app.use(express.json());    // Parses JSON request bodies
+app.use(cors());
+app.use(express.json());
+
+// Routes
+app.use("/api/products", productRoutes);
 
 // Test route
 app.get("/", (req, res) => {
-  res.send("Sneakers Store API is running...");
+  res.send("🛍️ Sneakers Store API is running successfully...");
 });
 
-// Server listening
+// Server Listening
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`✅ Server running on port ${PORT}`);
