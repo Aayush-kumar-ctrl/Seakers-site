@@ -1,25 +1,28 @@
-// Import required modules
-const express = require('express');
-const path = require('path');
+import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+import connectDB from "./config/db.js";
 
-// Create Express app
+// Load environment variables
+dotenv.config();
+
+// Connect to MongoDB
+connectDB();
+
+// Initialize express app
 const app = express();
-const PORT = 3000;
 
-// Serve static frontend files
-app.use(express.static(path.join(__dirname, '../frontend')));
+// Middleware
+app.use(cors());            // Enables cross-origin requests
+app.use(express.json());    // Parses JSON request bodies
 
-// Route for home page
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/index.html'));
+// Test route
+app.get("/", (req, res) => {
+  res.send("Sneakers Store API is running...");
 });
 
-// Optional: route for testing
-app.get('/test', (req, res) => {
-  res.send('Server is working!');
-});
-
-// Start the server
+// Server listening
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`✅ Server running on port ${PORT}`);
 });
