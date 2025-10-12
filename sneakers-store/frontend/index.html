@@ -1,67 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Old Skool - Gentswear</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
-</head>
-<body>
-  <!-- Clerk Frontend SDK -->
-  <script
-    async
-    crossorigin="anonymous"
-    data-clerk-publishable-key="your_clerk_publishable_key_here"
-    src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js">
-  </script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sneaker Store 👟</title>
 
-  <script>
-    window.addEventListener("load", async function () {
-      const Clerk = window.Clerk;
-
-      await Clerk.load();
-
-      if (Clerk.user) {
-        document.getElementById("auth-section").innerHTML = `
-          <p>Welcome, ${Clerk.user.firstName || "User"} 👋</p>
-          <button id="sign-out-btn">Logout</button>
-        `;
-
-        document.getElementById("sign-out-btn").addEventListener("click", () => Clerk.signOut());
-      } else {
-        Clerk.mountSignInButton(document.getElementById("sign-in-btn"));
-        Clerk.mountSignUpButton(document.getElementById("sign-up-btn"));
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+        text-align: center;
+        padding: 50px;
       }
-    });
-  </script>
 
-  <header class="hero">
-    <nav class="navbar">
-      <div class="logo">Old Skool</div>
-      <div id="auth-section">
-        <button id="sign-in-btn" class="btn">Sign In</button>
-        <button id="sign-up-btn" class="btn">Sign Up</button>
+      h1 {
+        color: #222;
+        margin-bottom: 30px;
+      }
+
+      button {
+        padding: 10px 20px;
+        margin: 10px;
+        border: none;
+        background-color: #111;
+        color: #fff;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background-color: #555;
+      }
+
+      #user-info {
+        margin-top: 30px;
+        font-size: 18px;
+        color: #333;
+      }
+    </style>
+
+    <!-- ✅ Clerk frontend SDK -->
+    <script
+      async
+      crossorigin="anonymous"
+      data-clerk-publishable-key="pk_test_Y3Jpc3Ata29pLTM4LmNsZXJrLmFjY291bnRzLmRldiQ"
+      src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
+    ></script>
+  </head>
+
+  <body>
+    <h1>Welcome to Sneaker Store 👟</h1>
+
+    <!-- Buttons for login/signup -->
+    <button id="sign-in">Sign In</button>
+    <button id="sign-up">Sign Up</button>
+    <button id="sign-out" style="display: none">Sign Out</button>
+    <button
+      class="add-to-cart"
+      data-id="PRODUCT_ID_HERE"
+      data-name="PRODUCT_NAME_HERE"
+      data-price="PRODUCT_PRICE_HERE"
+    >
+      Add to Cart
+    </button>
+
+    <div id="user-info"></div>
+
+    <!-- ✅ Clerk initialization -->
+    <script>
+      window.addEventListener("load", async () => {
+        await Clerk.load();
+
+        const signInButton = document.getElementById("sign-in");
+        const signUpButton = document.getElementById("sign-up");
+        const signOutButton = document.getElementById("sign-out");
+        const userInfo = document.getElementById("user-info");
+
+        // Update UI when user signs in or out
+        function updateUI() {
+          const user = Clerk.user;
+
+          if (user) {
+            signInButton.style.display = "none";
+            signUpButton.style.display = "none";
+            signOutButton.style.display = "inline-block";
+            userInfo.textContent = `👋 Welcome, ${user.firstName || "User"}!`;
+          } else {
+            signInButton.style.display = "inline-block";
+            signUpButton.style.display = "inline-block";
+            signOutButton.style.display = "none";
+            userInfo.textContent = "";
+          }
+        }
+
+        // Sign In
+        signInButton.addEventListener("click", () => {
+          Clerk.openSignIn();
+        });
+
+        // Sign Up
+        signUpButton.addEventListener("click", () => {
+          Clerk.openSignUp();
+        });
+
+        // Sign Out
+        signOutButton.addEventListener("click", async () => {
+          await Clerk.signOut();
+          updateUI();
+        });
+
+        Clerk.addListener(updateUI);
+        updateUI();
+      });
+    </script>
+
+    <section class="collection" id="collection">
+      <h2 class="section-title">Featured Collection</h2>
+      <div class="products" id="products-container">
+        <!-- Products will be inserted here dynamically -->
       </div>
-    </nav>
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h1>Old Skool Gentswear</h1>
-      <p>Classic. Confident. Cultured.</p>
-      <a href="#collection" class="btn">Explore the Collection</a>
-    </div>
-  </header>
+    </section>
 
-  <section class="collection" id="collection">
-    <h2 class="section-title">Featured Collection</h2>
-    <div class="products">
-      
-    </div>
-  </section>
+    <script>
+      async function loadProducts() {
+        try {
+          const res = await fetch("http://localhost:5000/api/products");
+          const products = await res.json();
 
-  <footer class="footer">
-    <p>&copy; 2025 Old Skool. All rights reserved.</p>
-  </footer>
+          const container = document.getElementById("products-container");
+          container.innerHTML = ""; // clear any existing
 
-</body>
+          products.forEach((product) => {
+            const card = document.createElement("div");
+            card.className = "product-card";
+            card.innerHTML = `
+          <img src="${product.image}" alt="${product.name}" />
+          <h3>${product.name}</h3>
+          <p class="price">₹${product.price}</p>
+        `;
+            container.appendChild(card);
+          });
+        } catch (err) {
+          console.error("Failed to load products:", err);
+        }
+      }
+
+      loadProducts();
+    </script>
+    <h2>Your Cart</h2>
+    <div id="cart-container"></div>
+
+    <script>
+      let userCart = [];
+
+      async function loadCart() {
+        try {
+          // Only fetch cart if user is logged in
+          const res = await fetch("http://localhost:5000/api/cart", {
+            credentials: "include",
+          });
+          const cart = await res.json();
+          userCart = cart.items || [];
+          renderCart();
+        } catch (err) {
+          console.error("Failed to load cart:", err);
+        }
+      }
+
+      function renderCart() {
+        const container = document.getElementById("cart-container");
+        container.innerHTML = "";
+        if (userCart.length === 0) {
+          container.textContent = "Cart is empty";
+          return;
+        }
+
+        userCart.forEach((item) => {
+          const div = document.createElement("div");
+          div.textContent = `${item.name} - ₹${item.price} × ${item.quantity}`;
+          container.appendChild(div);
+        });
+      }
+
+      document.addEventListener("click", async (e) => {
+        if (e.target.classList.contains("add-to-cart")) {
+          if (!window.clerk || !clerk.auth.user) {
+            alert("Please sign in first!");
+            return;
+          }
+
+          const productId = e.target.dataset.id;
+          const name = e.target.dataset.name;
+          const price = Number(e.target.dataset.price);
+
+          try {
+            await fetch("http://localhost:5000/api/cart", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              credentials: "include",
+              body: JSON.stringify({ productId, name, price, quantity: 1 }),
+            });
+
+            await loadCart();
+            alert(`${name} added to cart!`);
+          } catch (err) {
+            console.error("Failed to add to cart:", err);
+          }
+        }
+      });
+
+      // Load cart on page load if user is logged in
+      loadCart();
+    </script>
+  </body>
 </html>
