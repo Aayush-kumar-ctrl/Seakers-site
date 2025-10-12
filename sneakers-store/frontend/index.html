@@ -8,23 +8,50 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="hero">
-        <nav class="navbar">
-          <div class="logo">Old Skool</div>
-          <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#collection">Collection</a></li>
-            <li><a href="#">Journal</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-        <div class="overlay"></div>
-        <div class="hero-content">
-          <h1>Old Skool Gentswear</h1>
-          <p>Classic. Confident. Cultured.</p>
-          <a href="#collection" class="btn">Explore the Collection</a>
-        </div>
-    </header>
+  <!-- Clerk Frontend SDK -->
+  <script
+    async
+    crossorigin="anonymous"
+    data-clerk-publishable-key="your_clerk_publishable_key_here"
+    src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js">
+  </script>
+
+  <script>
+    window.addEventListener("load", async function () {
+      const Clerk = window.Clerk;
+
+      await Clerk.load();
+
+      if (Clerk.user) {
+        document.getElementById("auth-section").innerHTML = `
+          <p>Welcome, ${Clerk.user.firstName || "User"} 👋</p>
+          <button id="sign-out-btn">Logout</button>
+        `;
+
+        document.getElementById("sign-out-btn").addEventListener("click", () => Clerk.signOut());
+      } else {
+        Clerk.mountSignInButton(document.getElementById("sign-in-btn"));
+        Clerk.mountSignUpButton(document.getElementById("sign-up-btn"));
+      }
+    });
+  </script>
+
+  <header class="hero">
+    <nav class="navbar">
+      <div class="logo">Old Skool</div>
+      <div id="auth-section">
+        <button id="sign-in-btn" class="btn">Sign In</button>
+        <button id="sign-up-btn" class="btn">Sign Up</button>
+      </div>
+    </nav>
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Old Skool Gentswear</h1>
+      <p>Classic. Confident. Cultured.</p>
+      <a href="#collection" class="btn">Explore the Collection</a>
+    </div>
+  </header>
+
   <section class="collection" id="collection">
     <h2 class="section-title">Featured Collection</h2>
     <div class="products">
