@@ -1,217 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sneaker Store 👟</title>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Old Skool - Gentswear</title>
 
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f7f7f7;
-        text-align: center;
-        padding: 50px;
-      }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"></script>
 
-      h1 {
-        color: #222;
-        margin-bottom: 30px;
-      }
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Open Sans', sans-serif; background: #f8f9fa; color: #333; }
+  header { background: #111; color: white; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 24px; font-family: 'Playfair Display', serif; }
+  .nav-links { list-style: none; display: flex; gap: 20px; }
+  .nav-links li { cursor: pointer; }
+  .nav-links button { background: #ff6b00; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
 
-      button {
-        padding: 10px 20px;
-        margin: 10px;
-        border: none;
-        background-color: #111;
-        color: #fff;
-        border-radius: 6px;
-        cursor: pointer;
-        transition: 0.3s;
-      }
+  .collection { padding: 50px; text-align: center; }
+  .section-title { font-size: 30px; margin-bottom: 30px; font-family: 'Playfair Display', serif; }
 
-      button:hover {
-        background-color: #555;
-      }
+  /* Product grid */
+  .products { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 25px;
+    justify-items: center;
+  }
+  .product-card { 
+    background: white; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 250px;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+  }
+  .product-card:hover { transform: scale(1.05); }
+  .product-card img { width: 100%; height: 250px; object-fit: cover; border-top-left-radius: 10px; border-top-right-radius: 10px; }
+  .product-card h3 { margin: 10px 0; font-size: 18px; }
+  .price { color: #ff6b00; font-weight: bold; }
 
-      #user-info {
-        margin-top: 30px;
-        font-size: 18px;
-        color: #333;
-      }
-    </style>
+  /* Product detail view */
+  #product-detail {
+    display: none;
+    padding: 50px;
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  #product-detail img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  #product-detail h2 { font-family: 'Playfair Display', serif; margin-top: 20px; }
+  #product-detail p { margin: 10px 0; }
+  #product-detail button {
+    background: #ff6b00;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+  #back-btn {
+    margin-top: 30px;
+    display: inline-block;
+    background: #333;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
 
-    <!-- ✅ Clerk frontend SDK -->
-    <script
-      async
-      crossorigin="anonymous"
-      data-clerk-publishable-key="pk_test_Y3Jpc3Ata29pLTM4LmNsZXJrLmFjY291bnRzLmRldiQ"
-      src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
-    ></script>
-  </head>
+  /* Cart */
+  #cart-container { margin: 50px auto; max-width: 800px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+</style>
+</head>
+<body>
 
-  <body>
-    <h1>Welcome to Sneaker Store 👟</h1>
+<header>
+  <div class="logo">Old Skool</div>
+  <ul class="nav-links">
+    <li><a href="#" style="color:white; text-decoration:none;">Home</a></li>
+    <li><a href="#collection" style="color:white; text-decoration:none;">Collection</a></li>
+    <li><button id="sign-in">Sign In</button></li>
+    <li><button id="sign-out" style="display:none;">Sign Out</button></li>
+  </ul>
+</header>
 
-    <!-- Buttons for login/signup -->
-    <button id="sign-in">Sign In</button>
-    <button id="sign-up">Sign Up</button>
-    <button id="sign-out" style="display: none">Sign Out</button>
-    <button
-      class="add-to-cart"
-      data-id="PRODUCT_ID_HERE"
-      data-name="PRODUCT_NAME_HERE"
-      data-price="PRODUCT_PRICE_HERE"
-    >
-      Add to Cart
-    </button>
+<section class="collection" id="collection">
+  <h2 class="section-title">Featured Collection</h2>
+  <div class="products" id="products-container"></div>
+</section>
 
-    <div id="user-info"></div>
+<div id="product-detail">
+  <img id="detail-img" src="" alt="">
+  <h2 id="detail-name"></h2>
+  <p id="detail-price"></p>
+  <p id="detail-description"></p>
+  <div id="detail-reviews"></div>
+  <button id="add-to-cart-btn">Add to Cart</button>
+  <div id="back-btn">← Back to Products</div>
+</div>
 
-    <!-- ✅ Clerk initialization -->
-    <script>
-      window.addEventListener("load", async () => {
-        await Clerk.load();
+<h2 style="text-align:center;">Your Cart</h2>
+<div id="cart-container"></div>
 
-        const signInButton = document.getElementById("sign-in");
-        const signUpButton = document.getElementById("sign-up");
-        const signOutButton = document.getElementById("sign-out");
-        const userInfo = document.getElementById("user-info");
+<script>
+  // ---------------- Clerk Setup ----------------
+  const clerk = new Clerk({ frontendApi: "YOUR_FRONTEND_API_KEY" });
+  const auth = clerk.auth;
 
-        // Update UI when user signs in or out
-        function updateUI() {
-          const user = Clerk.user;
-
-          if (user) {
-            signInButton.style.display = "none";
-            signUpButton.style.display = "none";
-            signOutButton.style.display = "inline-block";
-            userInfo.textContent = `👋 Welcome, ${user.firstName || "User"}!`;
-          } else {
-            signInButton.style.display = "inline-block";
-            signUpButton.style.display = "inline-block";
-            signOutButton.style.display = "none";
-            userInfo.textContent = "";
-          }
-        }
-
-        // Sign In
-        signInButton.addEventListener("click", () => {
-          Clerk.openSignIn();
-        });
-
-        // Sign Up
-        signUpButton.addEventListener("click", () => {
-          Clerk.openSignUp();
-        });
-
-        // Sign Out
-        signOutButton.addEventListener("click", async () => {
-          await Clerk.signOut();
-          updateUI();
-        });
-
-        Clerk.addListener(updateUI);
-        updateUI();
-      });
-    </script>
-
-    <section class="collection" id="collection">
-      <h2 class="section-title">Featured Collection</h2>
-      <div class="products" id="products-container">
-        <!-- Products will be inserted here dynamically -->
-      </div>
-    </section>
-
-    <script>
-      async function loadProducts() {
-        try {
-          const res = await fetch("http://localhost:5000/api/products");
-          const products = await res.json();
-
-          const container = document.getElementById("products-container");
-          container.innerHTML = ""; // clear any existing
-
-          products.forEach((product) => {
-            const card = document.createElement("div");
-            card.className = "product-card";
-            card.innerHTML = `
-          <img src="${product.image}" alt="${product.name}" />
-          <h3>${product.name}</h3>
-          <p class="price">₹${product.price}</p>
-        `;
-            container.appendChild(card);
-          });
-        } catch (err) {
-          console.error("Failed to load products:", err);
-        }
-      }
-
-      loadProducts();
-    </script>
-    <h2>Your Cart</h2>
-    <div id="cart-container"></div>
-
-    <script>
-      let userCart = [];
-
-      async function loadCart() {
-        try {
-          // Only fetch cart if user is logged in
-          const res = await fetch("http://localhost:5000/api/cart", {
-            credentials: "include",
-          });
-          const cart = await res.json();
-          userCart = cart.items || [];
-          renderCart();
-        } catch (err) {
-          console.error("Failed to load cart:", err);
-        }
-      }
-
-      function renderCart() {
-        const container = document.getElementById("cart-container");
-        container.innerHTML = "";
-        if (userCart.length === 0) {
-          container.textContent = "Cart is empty";
-          return;
-        }
-
-        userCart.forEach((item) => {
-          const div = document.createElement("div");
-          div.textContent = `${item.name} - ₹${item.price} × ${item.quantity}`;
-          container.appendChild(div);
-        });
-      }
-
-      document.addEventListener("click", async (e) => {
-        if (e.target.classList.contains("add-to-cart")) {
-          if (!window.clerk || !clerk.auth.user) {
-            alert("Please sign in first!");
-            return;
-          }
-
-          const productId = e.target.dataset.id;
-          const name = e.target.dataset.name;
-          const price = Number(e.target.dataset.price);
-
-          try {
-            await fetch("http://localhost:5000/api/cart", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              credentials: "include",
-              body: JSON.stringify({ productId, name, price, quantity: 1 }),
-            });
-
-            await loadCart();
-            alert(`${name} added to cart!`);
-          } catch (err) {
-            console.error("Failed to add to cart:", err);
-          }
-        }
-      });
-
-      // Load cart on page load if user is logged in
+  function updateAuthButtons() {
+    if (auth.user) {
+      document.getElementById("sign-in").style.display = "none";
+      document.getElementById("sign-out").style.display = "inline-block";
       loadCart();
-    </script>
-  </body>
+    } else {
+      document.getElementById("sign-in").style.display = "inline-block";
+      document.getElementById("sign-out").style.display = "none";
+      document.getElementById("cart-container").innerHTML = "Please sign in to view your cart.";
+    }
+  }
+  document.getElementById("sign-in").addEventListener("click", () => clerk.signIn());
+  document.getElementById("sign-out").addEventListener("click", () => clerk.signOut());
+  auth.on("change", updateAuthButtons);
+  updateAuthButtons();
+
+  // ---------------- Products ----------------
+  let products = [];
+  let selectedProduct = null;
+  async function loadProducts() {
+    const res = await fetch("http://localhost:5000/api/products");
+    products = await res.json();
+    const container = document.getElementById("products-container");
+    container.innerHTML = "";
+    products.forEach(product => {
+      const card = document.createElement("div");
+      card.className = "product-card";
+      card.innerHTML = `
+        <img src="${product.image}" alt="${product.name}" />
+        <h3>${product.name}</h3>
+        <p class="price">₹${product.price}</p>
+      `;
+      card.addEventListener("click", () => showProductDetail(product));
+      container.appendChild(card);
+    });
+  }
+
+  // ---------------- Product Detail ----------------
+  const detail = document.getElementById("product-detail");
+  function showProductDetail(product) {
+    selectedProduct = product;
+    document.getElementById("collection").style.display = "none";
+    detail.style.display = "block";
+    document.getElementById("detail-img").src = product.image;
+    document.getElementById("detail-name").textContent = product.name;
+    document.getElementById("detail-price").textContent = `Price: ₹${product.price}`;
+    document.getElementById("detail-description").textContent = product.description || "No description available.";
+    document.getElementById("detail-reviews").innerHTML = `
+      <h3>Customer Reviews</h3>
+      <p>⭐️⭐️⭐️⭐️☆ 4.3/5 (Based on 48 reviews)</p>
+      <p>"Great fit and quality!" - Rajesh</p>
+      <p>"Exactly like the picture, very comfortable." - Aman</p>
+    `;
+  }
+  document.getElementById("back-btn").addEventListener("click", () => {
+    detail.style.display = "none";
+    document.getElementById("collection").style.display = "block";
+  });
+
+  document.getElementById("add-to-cart-btn").addEventListener("click", async () => {
+    if (!auth.user) return alert("Please sign in first!");
+    await fetch("http://localhost:5000/api/cart", {
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      credentials: "include",
+      body: JSON.stringify({
+        productId: selectedProduct._id,
+        name: selectedProduct.name,
+        price: selectedProduct.price,
+        quantity: 1
+      })
+    });
+    alert("Added to cart!");
+    loadCart();
+  });
+
+  // ---------------- Cart ----------------
+  async function loadCart() {
+    if (!auth.user) return;
+    const res = await fetch("http://localhost:5000/api/cart", { credentials: "include" });
+    const cart = await res.json();
+    const container = document.getElementById("cart-container");
+    if (!cart.items || cart.items.length === 0) {
+      container.innerHTML = "<p>Cart is empty.</p>";
+      return;
+    }
+    container.innerHTML = cart.items.map(item => `
+      <p>${item.name} - ₹${item.price} × ${item.quantity}</p>
+    `).join("");
+  }
+
+  // ---------------- Init ----------------
+  loadProducts();
+</script>
+
+</body>
 </html>
