@@ -1,225 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Old Skool - Gentswear</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"></script>
-
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Open Sans', sans-serif; background: #f8f9fa; color: #333; }
-  header { background: #111; color: white; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; }
-  .logo { font-size: 24px; font-family: 'Playfair Display', serif; }
-  .nav-links { list-style: none; display: flex; gap: 20px; }
-  .nav-links li { cursor: pointer; }
-  .nav-links button { background: #ff6b00; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
-
-  .collection { padding: 50px; text-align: center; }
-  .section-title { font-size: 30px; margin-bottom: 30px; font-family: 'Playfair Display', serif; }
-
-  /* Product grid */
-  .products { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-    gap: 25px;
-    justify-items: center;
-  }
-  .product-card { 
-    background: white; 
-    border-radius: 10px; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    width: 250px;
-    transition: transform 0.2s ease;
-    cursor: pointer;
-  }
-  .product-card:hover { transform: scale(1.05); }
-  .product-card img { width: 100%; height: 250px; object-fit: cover; border-top-left-radius: 10px; border-top-right-radius: 10px; }
-  .product-card h3 { margin: 10px 0; font-size: 18px; }
-  .price { color: #ff6b00; font-weight: bold; }
-
-  /* Product detail view */
-  #product-detail {
-    display: none;
-    padding: 50px;
-    max-width: 900px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  }
-  #product-detail img {
-    width: 100%;
-    max-height: 400px;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-  #product-detail h2 { font-family: 'Playfair Display', serif; margin-top: 20px; }
-  #product-detail p { margin: 10px 0; }
-  #product-detail button {
-    background: #ff6b00;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-top: 15px;
-  }
-  #back-btn {
-    margin-top: 30px;
-    display: inline-block;
-    background: #333;
-    color: white;
-    padding: 8px 16px;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-
-<<<<<<< HEAD
-  /* Cart */
-  #cart-container { margin: 50px auto; max-width: 800px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-</style>
-</head>
-<body>
-=======
-    <!-- ✅ Clerk frontend SDK -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Old Skool - Gentswear</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
     <script
       async
       crossorigin="anonymous"
-      src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
+      data-clerk-publishable-key="pk_test_Y3Jpc3Ata29pLTM4LmNsZXJrLmFjY291bnRzLmRldiQ"
+      src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest"
     ></script>
   </head>
->>>>>>> b7d38ac36daa28f52a88ac436a79f63b345f51f4
 
-<header>
-  <div class="logo">Old Skool</div>
-  <ul class="nav-links">
-    <li><a href="#" style="color:white; text-decoration:none;">Home</a></li>
-    <li><a href="#collection" style="color:white; text-decoration:none;">Collection</a></li>
-    <li><button id="sign-in">Sign In</button></li>
-    <li><button id="sign-out" style="display:none;">Sign Out</button></li>
-  </ul>
-</header>
+  <body>
+    <header class="hero">
+      <nav class="navbar">
+        <div class="logo">Old Skool</div>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#collection">Collection</a></li>
+          <li><a href="#">Journal</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
 
-<section class="collection" id="collection">
-  <h2 class="section-title">Featured Collection</h2>
-  <div class="products" id="products-container"></div>
-</section>
+        <div id="auth-buttons">
+          <button id="sign-in">Sign In</button>
+          <button id="sign-out" style="display: none">Sign Out</button>
+        </div>
+      </nav>
 
-<div id="product-detail">
-  <img id="detail-img" src="" alt="">
-  <h2 id="detail-name"></h2>
-  <p id="detail-price"></p>
-  <p id="detail-description"></p>
-  <div id="detail-reviews"></div>
-  <button id="add-to-cart-btn">Add to Cart</button>
-  <div id="back-btn">← Back to Products</div>
-</div>
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1>Old Skool Gentswear</h1>
+        <p>Classic. Confident. Cultured.</p>
+        <a href="#collection" class="btn">Explore the Collection</a>
+      </div>
+    </header>
 
-<h2 style="text-align:center;">Your Cart</h2>
-<div id="cart-container"></div>
+    <!-- Product Collection -->
+    <section class="collection" id="collection">
+      <h2 class="section-title">Featured Collection</h2>
+      <div id="products" class="products"></div>
+    </section>
 
-<script>
-  // ---------------- Clerk Setup ----------------
-  const clerk = new Clerk({ frontendApi: "YOUR_FRONTEND_API_KEY" });
-  const auth = clerk.auth;
+    <!-- Product Modal -->
+    <div id="product-modal" class="modal" style="display: none">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <img id="modal-image" src="" alt="Product Image" />
+        <h2 id="modal-name"></h2>
+        <p id="modal-price"></p>
+        <p id="modal-description"></p>
+        <p id="modal-reviews">⭐ 4.5/5 (23 Reviews)</p>
+        <button id="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
 
-  function updateAuthButtons() {
-    if (auth.user) {
-      document.getElementById("sign-in").style.display = "none";
-      document.getElementById("sign-out").style.display = "inline-block";
-      loadCart();
-    } else {
-      document.getElementById("sign-in").style.display = "inline-block";
-      document.getElementById("sign-out").style.display = "none";
-      document.getElementById("cart-container").innerHTML = "Please sign in to view your cart.";
-    }
-  }
-  document.getElementById("sign-in").addEventListener("click", () => clerk.signIn());
-  document.getElementById("sign-out").addEventListener("click", () => clerk.signOut());
-  auth.on("change", updateAuthButtons);
-  updateAuthButtons();
+    <footer class="footer">
+      <p>&copy; 2025 Old Skool. All rights reserved.</p>
+    </footer>
 
-  // ---------------- Products ----------------
-  let products = [];
-  let selectedProduct = null;
-  async function loadProducts() {
-    const res = await fetch("http://localhost:5000/api/products");
-    products = await res.json();
-    const container = document.getElementById("products-container");
-    container.innerHTML = "";
-    products.forEach(product => {
-      const card = document.createElement("div");
-      card.className = "product-card";
-      card.innerHTML = `
-        <img src="${product.image}" alt="${product.name}" />
-        <h3>${product.name}</h3>
-        <p class="price">₹${product.price}</p>
-      `;
-      card.addEventListener("click", () => showProductDetail(product));
-      container.appendChild(card);
-    });
-  }
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        const clerk = new Clerk({ publishableKey: "pk_test_Y3Jpc3Ata29pLTM4LmNsZXJrLmFjY291bnRzLmRldiQ" });
+        await clerk.load();
 
-  // ---------------- Product Detail ----------------
-  const detail = document.getElementById("product-detail");
-  function showProductDetail(product) {
-    selectedProduct = product;
-    document.getElementById("collection").style.display = "none";
-    detail.style.display = "block";
-    document.getElementById("detail-img").src = product.image;
-    document.getElementById("detail-name").textContent = product.name;
-    document.getElementById("detail-price").textContent = `Price: ₹${product.price}`;
-    document.getElementById("detail-description").textContent = product.description || "No description available.";
-    document.getElementById("detail-reviews").innerHTML = `
-      <h3>Customer Reviews</h3>
-      <p>⭐️⭐️⭐️⭐️☆ 4.3/5 (Based on 48 reviews)</p>
-      <p>"Great fit and quality!" - Rajesh</p>
-      <p>"Exactly like the picture, very comfortable." - Aman</p>
-    `;
-  }
-  document.getElementById("back-btn").addEventListener("click", () => {
-    detail.style.display = "none";
-    document.getElementById("collection").style.display = "block";
-  });
+        const signInBtn = document.getElementById("sign-in");
+        const signOutBtn = document.getElementById("sign-out");
 
-  document.getElementById("add-to-cart-btn").addEventListener("click", async () => {
-    if (!auth.user) return alert("Please sign in first!");
-    await fetch("http://localhost:5000/api/cart", {
-      method: "POST",
-      headers: {"Content-Type":"application/json"},
-      credentials: "include",
-      body: JSON.stringify({
-        productId: selectedProduct._id,
-        name: selectedProduct.name,
-        price: selectedProduct.price,
-        quantity: 1
-      })
-    });
-    alert("Added to cart!");
-    loadCart();
-  });
+        async function updateAuthUI() {
+          const user = clerk.user;
+          if (user) {
+            signInBtn.style.display = "none";
+            signOutBtn.style.display = "block";
+          } else {
+            signInBtn.style.display = "block";
+            signOutBtn.style.display = "none";
+          }
+        }
 
-  // ---------------- Cart ----------------
-  async function loadCart() {
-    if (!auth.user) return;
-    const res = await fetch("http://localhost:5000/api/cart", { credentials: "include" });
-    const cart = await res.json();
-    const container = document.getElementById("cart-container");
-    if (!cart.items || cart.items.length === 0) {
-      container.innerHTML = "<p>Cart is empty.</p>";
-      return;
-    }
-    container.innerHTML = cart.items.map(item => `
-      <p>${item.name} - ₹${item.price} × ${item.quantity}</p>
-    `).join("");
-  }
+        signInBtn.addEventListener("click", () => clerk.openSignIn());
+        signOutBtn.addEventListener("click", () => clerk.signOut());
+        updateAuthUI();
 
-  // ---------------- Init ----------------
-  loadProducts();
-</script>
+        // Fetch products
+        const res = await fetch("http://localhost:5000/api/products");
+        const products = await res.json();
+        const productsContainer = document.getElementById("products");
 
-</body>
+        products.forEach((p) => {
+          const card = document.createElement("div");
+          card.className = "product-card";
+          card.innerHTML = `
+            <img src="${p.image}" alt="${p.name}" />
+            <h3>${p.name}</h3>
+            <p class="price">₹${p.price}</p>
+          `;
+          card.addEventListener("click", () => openModal(p));
+          productsContainer.appendChild(card);
+        });
+
+        // Modal functionality
+        const modal = document.getElementById("product-modal");
+        const closeBtn = modal.querySelector(".close");
+
+        function openModal(product) {
+          modal.style.display = "flex";
+          document.getElementById("modal-image").src = product.image;
+          document.getElementById("modal-name").innerText = product.name;
+          document.getElementById("modal-price").innerText = "₹" + product.price;
+          document.getElementById("modal-description").innerText = product.description || "A classic addition to your wardrobe.";
+          document.getElementById("add-to-cart").onclick = () => addToCart(product);
+        }
+
+        closeBtn.onclick = () => (modal.style.display = "none");
+        window.onclick = (e) => {
+          if (e.target == modal) modal.style.display = "none";
+        };
+
+        async function addToCart(product) {
+          const user = clerk.user;
+          if (!user) {
+            alert("Please sign in first to add products to your cart.");
+            return;
+          }
+          const userId = user.id;
+          const res = await fetch("http://localhost:5000/api/cart", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ userId, productId: product._id }),
+          });
+          const data = await res.json();
+          alert(data.message || "Added to cart!");
+        }
+      });
+    </script>
+
+    <style>
+      /* Basic styling */
+      body {
+        font-family: "Open Sans", sans-serif;
+        margin: 0;
+        background: #fafafa;
+      }
+      .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        max-width: 1200px;
+        margin: auto;
+      }
+      .product-card {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        text-align: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+      }
+      .product-card:hover {
+        transform: scale(1.03);
+        cursor: pointer;
+      }
+      .product-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+      }
+      .modal-content {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        max-width: 500px;
+        width: 90%;
+        text-align: center;
+        position: relative;
+      }
+      .close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 24px;
+        cursor: pointer;
+      }
+      #add-to-cart {
+        margin-top: 15px;
+        padding: 10px 20px;
+        background: black;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </body>
 </html>
