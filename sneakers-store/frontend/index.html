@@ -52,6 +52,70 @@
 
   <body>
   <div id="app" style="padding:20px;"></div>
+
+  <!-- Clerk Login Container -->
+  <div id="app" style="padding: 20px;"></div>
+
+  <!-- Product Section -->
+  <div id="products-container" style="padding: 40px;">
+    <h1 style="text-align:center; font-family:sans-serif;">🔥 Featured Sneakers</h1>
+    <div id="product-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 30px;"></div>
+  </div>
+
+  <!-- Product Details Modal -->
+  <div id="product-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center;">
+    <div style="background:white; padding:30px; border-radius:15px; width:400px; max-width:90%; text-align:center;">
+      <img id="modal-img" src="" alt="Product" style="width:100%; border-radius:10px;" />
+      <h2 id="modal-title"></h2>
+      <p id="modal-desc"></p>
+      <h3 id="modal-price" style="color:green;"></h3>
+      <button id="add-to-cart-btn" style="margin-top:15px; padding:10px 20px; background:#000; color:white; border:none; border-radius:8px; cursor:pointer;">Add to Cart</button>
+      <button onclick="closeModal()" style="margin-top:10px; background:none; border:none; color:red; cursor:pointer;">Close</button>
+    </div>
+  </div>
+
+  <script>
+    const apiURL = "http://localhost:5000/api/products"; // Your backend route
+
+    async function loadProducts() {
+      try {
+        const res = await fetch(apiURL);
+        const products = await res.json();
+        const container = document.getElementById("product-list");
+        container.innerHTML = "";
+
+        products.forEach(p => {
+          const card = document.createElement("div");
+          card.style = "background:#fff; box-shadow:0 2px 8px rgba(0,0,0,0.1); border-radius:15px; padding:15px; cursor:pointer;";
+          card.innerHTML = `
+            <img src="${p.image}" alt="${p.name}" style="width:100%; border-radius:10px;" />
+            <h3 style="font-family:sans-serif;">${p.name}</h3>
+            <p style="color:gray;">${p.description.slice(0,50)}...</p>
+            <h4 style="color:green;">₹${p.price}</h4>
+          `;
+          card.addEventListener("click", () => openModal(p));
+          container.appendChild(card);
+        });
+      } catch (err) {
+        console.error("Error fetching products:", err);
+      }
+    }
+
+    function openModal(product) {
+      document.getElementById("modal-img").src = product.image;
+      document.getElementById("modal-title").textContent = product.name;
+      document.getElementById("modal-desc").textContent = product.description;
+      document.getElementById("modal-price").textContent = "₹" + product.price;
+      document.getElementById("product-modal").style.display = "flex";
+      document.getElementById("add-to-cart-btn").onclick = () => alert(`${product.name} added to cart!`);
+    }
+
+    function closeModal() {
+      document.getElementById("product-modal").style.display = "none";
+    }
+
+    loadProducts();
+  </script>
     <header class="hero">
       <nav class="navbar">
         <div class="logo">Old Skool</div>
