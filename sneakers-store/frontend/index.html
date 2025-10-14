@@ -5,148 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Old Skool Store</title>
 
-    <!-- Clerk Script -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Clerk SDK -->
     <script
       async
       crossorigin="anonymous"
       data-clerk-publishable-key="pk_test_Y3Jpc3Ata29pLTM4LmNsZXJrLmFjY291bnRzLmRldiQ"
       src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest"
     ></script>
-
-    <style>
-      * { box-sizing: border-box; }
-      body {
-        margin: 0;
-        font-family: "Poppins", sans-serif;
-        background-color: #f5f5f5;
-        color: #222;
-      }
-      header {
-        background-color: black;
-        color: white;
-        padding: 1rem 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      header h1 { font-size: 1.6rem; }
-      .auth-buttons { display: flex; gap: 10px; }
-      .auth-buttons button {
-        background-color: white;
-        color: black;
-        border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 6px;
-        cursor: pointer;
-        font-weight: 600;
-      }
-      .auth-buttons button:hover { background-color: #ddd; }
-
-      .hero {
-        background: url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f') center/cover no-repeat;
-        height: 300px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-      }
-      .hero h2 {
-        background-color: rgba(0,0,0,0.4);
-        padding: 1rem 2rem;
-        border-radius: 12px;
-      }
-
-      .products-section {
-        padding: 2rem;
-        text-align: center;
-      }
-      .product-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        gap: 1.5rem;
-        margin-top: 1.5rem;
-      }
-      .product-card {
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        overflow: hidden;
-        cursor: pointer;
-        transition: transform 0.2s;
-      }
-      .product-card:hover { transform: translateY(-5px); }
-      .product-card img {
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-      }
-      .product-info {
-        padding: 1rem;
-      }
-      .product-info h3 {
-        margin: 0;
-        font-size: 1.1rem;
-      }
-      .product-info p {
-        margin: 0.5rem 0 0;
-        color: #555;
-        font-weight: 500;
-      }
-
-      footer {
-        background-color: black;
-        color: white;
-        text-align: center;
-        padding: 1rem;
-        margin-top: 2rem;
-      }
-
-      /* Modal Styles */
-      .modal {
-        display: none;
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background-color: rgba(0,0,0,0.6);
-        justify-content: center;
-        align-items: center;
-        z-index: 100;
-      }
-      .modal-content {
-        background-color: white;
-        padding: 1.5rem;
-        border-radius: 12px;
-        max-width: 500px;
-        width: 90%;
-        text-align: center;
-      }
-      .modal-content img {
-        width: 100%;
-        height: 250px;
-        object-fit: cover;
-        border-radius: 8px;
-      }
-      .close {
-        position: absolute;
-        top: 20px;
-        right: 30px;
-        font-size: 2rem;
-        color: white;
-        cursor: pointer;
-      }
-      button {
-        background-color: black;
-        color: white;
-        border: none;
-        padding: 0.7rem 1.2rem;
-        border-radius: 6px;
-        cursor: pointer;
-        font-weight: 600;
-        margin-top: 10px;
-      }
-      button:hover { background-color: #333; }
-    </style>
   </head>
 
   <body>
@@ -177,89 +45,7 @@
       <div class="modal-content" id="modal-content"></div>
     </div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Load Clerk after DOM is ready
-        window.Clerk.load().then(() => {
-          document.getElementById("sign-in-btn").onclick = () => Clerk.openSignIn();
-          document.getElementById("sign-up-btn").onclick = () => Clerk.openSignUp();
-        });
-
-        const products = [
-          {
-            id: 1,
-            name: "Classic Denim Jacket",
-            price: 2499,
-            image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
-            description: "A timeless denim jacket with a vintage look. Perfect for any season.",
-            reviews: "⭐ 4.7 (143 Reviews)"
-          },
-          {
-            id: 2,
-            name: "Retro Sneakers",
-            price: 3499,
-            image: "https://images.unsplash.com/photo-1595950657874-58d3b3b46c92",
-            description: "Step back in time with our retro-style sneakers — comfort meets style.",
-            reviews: "⭐ 4.8 (321 Reviews)"
-          },
-          {
-            id: 3,
-            name: "Vintage Graphic Tee",
-            price: 1299,
-            image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format",
-            description: "Soft cotton tee featuring old-school print for a nostalgic vibe.",
-            reviews: "⭐ 4.6 (89 Reviews)"
-          },
-          {
-            id: 4,
-            name: "Old Skool Cap",
-            price: 899,
-            image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format",
-            description: "Keep it cool with this retro cap that never goes out of fashion.",
-            reviews: "⭐ 4.5 (67 Reviews)"
-          }
-        ];
-
-        const grid = document.getElementById("product-grid");
-        const modal = document.getElementById("product-modal");
-        const modalContent = document.getElementById("modal-content");
-        const closeModal = document.getElementById("close-modal");
-
-        // Render products
-        grid.innerHTML = products.map(p => `
-          <div class="product-card" onclick="openProduct(${p.id})">
-            <img src="${p.image}" alt="${p.name}">
-            <div class="product-info">
-              <h3>${p.name}</h3>
-              <p>₹${p.price}</p>
-            </div>
-          </div>
-        `).join('');
-
-        window.openProduct = function(id) {
-          const p = products.find(x => x.id === id);
-          modalContent.innerHTML = `
-            <img src="${p.image}" alt="${p.name}">
-            <h2>${p.name}</h2>
-            <p>${p.description}</p>
-            <p><strong>${p.reviews}</strong></p>
-            <p style="font-size:1.2rem;font-weight:bold;">₹${p.price}</p>
-            <button onclick="addToCart(${p.id})">Add to Cart</button>
-          `;
-          modal.style.display = "flex";
-        }
-
-        window.addToCart = function(id) {
-          const p = products.find(x => x.id === id);
-          alert(`${p.name} added to cart!`);
-          modal.style.display = "none";
-        }
-
-        closeModal.onclick = () => modal.style.display = "none";
-        window.onclick = e => { if (e.target == modal) modal.style.display = "none"; }
-      });
-    </script>
+    <!-- JavaScript -->
+    <script src="script.js"></script>
   </body>
 </html>
-
-
