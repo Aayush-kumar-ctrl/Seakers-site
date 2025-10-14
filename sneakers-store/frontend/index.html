@@ -3,311 +3,264 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Old Skool - Gentswear</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap"
-      rel="stylesheet"
-    /><head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sneakers Store</title>
-
-  <!-- Clerk SDK -->
-  <script
-    async
-    crossorigin="anonymous"
-    data-clerk-publishable-key="pk_test_Y3Jpc3Ata29pLTM4LmNsZXJrLmFjY291bnRzLmRldiQ"
-    src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js">
-  </script>
-
-  <script>
-    window.addEventListener("load", async function () {
-      await Clerk.load();
-
-      if (Clerk.user) {
-        document.getElementById("app").innerHTML = `
-          <p>Welcome, ${Clerk.user.firstName || "User"}!</p>
-          <button id="sign-out">Sign Out</button>
-        `;
-        document.getElementById("sign-out").addEventListener("click", () => Clerk.signOut());
-      } else {
-        document.getElementById("app").innerHTML = `
-          <button id="sign-up">Sign Up</button>
-          <button id="sign-in">Sign In</button>
-        `;
-
-        document.getElementById("sign-up").addEventListener("click", () => Clerk.openSignUp());
-        document.getElementById("sign-in").addEventListener("click", () => Clerk.openSignIn());
-      }
-    });
-  </script>
+    <title>Old Skool Store</title>
     <script
       async
       crossorigin="anonymous"
       data-clerk-publishable-key="pk_test_Y3Jpc3Ata29pLTM4LmNsZXJrLmFjY291bnRzLmRldiQ"
       src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest"
     ></script>
-  </head>
-
-  <body>
-  <div id="app" style="padding:20px;"></div>
-
-  <!-- Clerk Login Container -->
-  <div id="app" style="padding: 20px;"></div>
-
-  <!-- Product Section -->
-  <div id="products-container" style="padding: 40px;">
-    <h1 style="text-align:center; font-family:sans-serif;">🔥 Featured Sneakers</h1>
-    <div id="product-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 30px;"></div>
-  </div>
-
-  <!-- Product Details Modal -->
-  <div id="product-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center;">
-    <div style="background:white; padding:30px; border-radius:15px; width:400px; max-width:90%; text-align:center;">
-      <img id="modal-img" src="" alt="Product" style="width:100%; border-radius:10px;" />
-      <h2 id="modal-title"></h2>
-      <p id="modal-desc"></p>
-      <h3 id="modal-price" style="color:green;"></h3>
-      <button id="add-to-cart-btn" style="margin-top:15px; padding:10px 20px; background:#000; color:white; border:none; border-radius:8px; cursor:pointer;">Add to Cart</button>
-      <button onclick="closeModal()" style="margin-top:10px; background:none; border:none; color:red; cursor:pointer;">Close</button>
-    </div>
-  </div>
-
-  <script>
-    const apiURL = "http://localhost:5000/api/products"; // Your backend route
-
-    async function loadProducts() {
-      try {
-        const res = await fetch(apiURL);
-        const products = await res.json();
-        const container = document.getElementById("product-list");
-        container.innerHTML = "";
-
-        products.forEach(p => {
-          const card = document.createElement("div");
-          card.style = "background:#fff; box-shadow:0 2px 8px rgba(0,0,0,0.1); border-radius:15px; padding:15px; cursor:pointer;";
-          card.innerHTML = `
-            <img src="${p.image}" alt="${p.name}" style="width:100%; border-radius:10px;" />
-            <h3 style="font-family:sans-serif;">${p.name}</h3>
-            <p style="color:gray;">${p.description.slice(0,50)}...</p>
-            <h4 style="color:green;">₹${p.price}</h4>
-          `;
-          card.addEventListener("click", () => openModal(p));
-          container.appendChild(card);
-        });
-      } catch (err) {
-        console.error("Error fetching products:", err);
-      }
-    }
-
-    function openModal(product) {
-      document.getElementById("modal-img").src = product.image;
-      document.getElementById("modal-title").textContent = product.name;
-      document.getElementById("modal-desc").textContent = product.description;
-      document.getElementById("modal-price").textContent = "₹" + product.price;
-      document.getElementById("product-modal").style.display = "flex";
-      document.getElementById("add-to-cart-btn").onclick = () => alert(`${product.name} added to cart!`);
-    }
-
-    function closeModal() {
-      document.getElementById("product-modal").style.display = "none";
-    }
-
-    loadProducts();
-  </script>
-    <header class="hero">
-      <nav class="navbar">
-        <div class="logo">Old Skool</div>
-        <ul class="nav-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#collection">Collection</a></li>
-          <li><a href="#">Journal</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-
-        <div id="auth-buttons">
-          <button id="sign-in">Sign In</button>
-          <button id="sign-out" style="display: none">Sign Out</button>
-        </div>
-      </nav>
-
-      <div class="overlay"></div>
-      <div class="hero-content">
-        <h1>Old Skool Gentswear</h1>
-        <p>Classic. Confident. Cultured.</p>
-        <a href="#collection" class="btn">Explore the Collection</a>
-      </div>
-    </header>
-
-    <!-- Product Collection -->
-    <section class="collection" id="collection">
-      <h2 class="section-title">Featured Collection</h2>
-      <div id="products" class="products"></div>
-    </section>
-
-    <!-- Product Modal -->
-    <div id="product-modal" class="modal" style="display: none">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <img id="modal-image" src="" alt="Product Image" />
-        <h2 id="modal-name"></h2>
-        <p id="modal-price"></p>
-        <p id="modal-description"></p>
-        <p id="modal-reviews">⭐ 4.5/5 (23 Reviews)</p>
-        <button id="add-to-cart">Add to Cart</button>
-      </div>
-    </div>
-
-    <footer class="footer">
-      <p>&copy; 2025 Old Skool. All rights reserved.</p>
-    </footer>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", async () => {
-        const clerk = new Clerk({ publishableKey: "pk_test_Y3Jpc3Ata29pLTM4LmNsZXJrLmFjY291bnRzLmRldiQ" });
-        await clerk.load();
-
-        const signInBtn = document.getElementById("sign-in");
-        const signOutBtn = document.getElementById("sign-out");
-
-        async function updateAuthUI() {
-          const user = clerk.user;
-          if (user) {
-            signInBtn.style.display = "none";
-            signOutBtn.style.display = "block";
-          } else {
-            signInBtn.style.display = "block";
-            signOutBtn.style.display = "none";
-          }
-        }
-
-        signInBtn.addEventListener("click", () => clerk.openSignIn());
-        signOutBtn.addEventListener("click", () => clerk.signOut());
-        updateAuthUI();
-
-        // Fetch products
-        const res = await fetch("http://localhost:5000/api/products");
-        const products = await res.json();
-        const productsContainer = document.getElementById("products");
-
-        products.forEach((p) => {
-          const card = document.createElement("div");
-          card.className = "product-card";
-          card.innerHTML = `
-            <img src="${p.image}" alt="${p.name}" />
-            <h3>${p.name}</h3>
-            <p class="price">₹${p.price}</p>
-          `;
-          card.addEventListener("click", () => openModal(p));
-          productsContainer.appendChild(card);
-        });
-
-        // Modal functionality
-        const modal = document.getElementById("product-modal");
-        const closeBtn = modal.querySelector(".close");
-
-        function openModal(product) {
-          modal.style.display = "flex";
-          document.getElementById("modal-image").src = product.image;
-          document.getElementById("modal-name").innerText = product.name;
-          document.getElementById("modal-price").innerText = "₹" + product.price;
-          document.getElementById("modal-description").innerText = product.description || "A classic addition to your wardrobe.";
-          document.getElementById("add-to-cart").onclick = () => addToCart(product);
-        }
-
-        closeBtn.onclick = () => (modal.style.display = "none");
-        window.onclick = (e) => {
-          if (e.target == modal) modal.style.display = "none";
-        };
-
-        async function addToCart(product) {
-          const user = clerk.user;
-          if (!user) {
-            alert("Please sign in first to add products to your cart.");
-            return;
-          }
-          const userId = user.id;
-          const res = await fetch("http://localhost:5000/api/cart", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ userId, productId: product._id }),
-          });
-          const data = await res.json();
-          alert(data.message || "Added to cart!");
-        }
-      });
-    </script>
 
     <style>
-      /* Basic styling */
-      body {
-        font-family: "Open Sans", sans-serif;
-        margin: 0;
-        background: #fafafa;
+      * {
+        box-sizing: border-box;
       }
-      .products {
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background-color: #f4f4f4;
+        color: #222;
+      }
+
+      header {
+        background-color: black;
+        color: white;
+        padding: 1rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      header h1 {
+        font-size: 1.6rem;
+        letter-spacing: 1px;
+      }
+
+      .hero {
+        background: url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f') center/cover no-repeat;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+      }
+      .hero h2 {
+        font-size: 2rem;
+        background-color: rgba(0,0,0,0.4);
+        padding: 0.5rem 1.5rem;
+        border-radius: 10px;
+      }
+
+      .products-section {
+        padding: 2rem;
+      }
+      .product-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-        padding: 20px;
-        max-width: 1200px;
-        margin: auto;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1.5rem;
       }
       .product-card {
-        background: white;
-        border-radius: 10px;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         overflow: hidden;
-        text-align: center;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
         transition: transform 0.2s;
       }
       .product-card:hover {
-        transform: scale(1.03);
-        cursor: pointer;
+        transform: translateY(-5px);
       }
       .product-card img {
         width: 100%;
-        height: 250px;
+        height: 180px;
         object-fit: cover;
       }
+      .product-info {
+        padding: 1rem;
+      }
+      .product-info h3 {
+        margin: 0 0 0.5rem;
+        font-size: 1.1rem;
+      }
+      .product-info p {
+        margin: 0;
+        font-weight: 500;
+        color: #555;
+      }
+
+      footer {
+        background-color: black;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+      }
+
+      /* Product Modal */
       .modal {
         display: none;
         position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.6);
-        align-items: center;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-color: rgba(0,0,0,0.6);
         justify-content: center;
-        z-index: 1000;
+        align-items: center;
       }
       .modal-content {
-        background: white;
-        padding: 30px;
-        border-radius: 10px;
+        background-color: white;
+        padding: 1.5rem;
+        border-radius: 12px;
         max-width: 500px;
         width: 90%;
         text-align: center;
-        position: relative;
+      }
+      .modal-content img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 8px;
       }
       .close {
         position: absolute;
-        right: 10px;
-        top: 10px;
-        font-size: 24px;
+        top: 20px;
+        right: 30px;
+        font-size: 2rem;
+        color: white;
         cursor: pointer;
       }
-      #add-to-cart {
-        margin-top: 15px;
-        padding: 10px 20px;
-        background: black;
+      button {
+        background-color: black;
         color: white;
         border: none;
-        border-radius: 5px;
+        padding: 0.7rem 1.2rem;
+        border-radius: 6px;
         cursor: pointer;
+        font-weight: 600;
+        margin-top: 10px;
+      }
+      button:hover {
+        background-color: #333;
+      }
+
+      /* Clerk buttons */
+      .auth-buttons {
+        display: flex;
+        gap: 10px;
       }
     </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Old Skool</h1>
+      <div class="auth-buttons">
+        <button id="sign-in-btn">Sign In</button>
+        <button id="sign-up-btn">Sign Up</button>
+      </div>
+    </header>
+
+    <div class="hero">
+      <h2>Where Vintage Meets Cool</h2>
+    </div>
+
+    <section class="products-section">
+      <h2 style="text-align:center; margin-bottom:1.5rem;">Our Collection</h2>
+      <div class="product-grid" id="product-grid"></div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Old Skool. All rights reserved.</p>
+    </footer>
+
+    <!-- Product Modal -->
+    <div class="modal" id="product-modal">
+      <span class="close" id="close-modal">&times;</span>
+      <div class="modal-content" id="modal-content"></div>
+    </div>
+
+    <script>
+      window.Clerk.load().then(async () => {
+        const signInBtn = document.getElementById("sign-in-btn");
+        const signUpBtn = document.getElementById("sign-up-btn");
+
+        signInBtn.addEventListener("click", () => Clerk.openSignIn());
+        signUpBtn.addEventListener("click", () => Clerk.openSignUp());
+      });
+
+      const products = [
+        {
+          id: 1,
+          name: "Classic Denim Jacket",
+          price: 2499,
+          image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
+          description: "A timeless denim jacket with a vintage look. Perfect for any season.",
+          reviews: "⭐ 4.7 (143 Reviews)"
+        },
+        {
+          id: 2,
+          name: "Retro Sneakers",
+          price: 3499,
+          image: "https://images.unsplash.com/photo-1595950657874-58d3b3b46c92",
+          description: "Step back in time with our retro-style sneakers — comfort meets style.",
+          reviews: "⭐ 4.8 (321 Reviews)"
+        },
+        {
+          id: 3,
+          name: "Vintage Graphic Tee",
+          price: 1299,
+          image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format",
+          description: "Soft cotton tee featuring old-school print for a nostalgic vibe.",
+          reviews: "⭐ 4.6 (89 Reviews)"
+        },
+        {
+          id: 4,
+          name: "Old Skool Cap",
+          price: 899,
+          image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format",
+          description: "Keep it cool with this retro cap that never goes out of fashion.",
+          reviews: "⭐ 4.5 (67 Reviews)"
+        }
+      ];
+
+      const grid = document.getElementById("product-grid");
+      const modal = document.getElementById("product-modal");
+      const modalContent = document.getElementById("modal-content");
+      const closeModal = document.getElementById("close-modal");
+
+      function renderProducts() {
+        grid.innerHTML = products.map(p => `
+          <div class="product-card" onclick="openProduct(${p.id})">
+            <img src="${p.image}" alt="${p.name}">
+            <div class="product-info">
+              <h3>${p.name}</h3>
+              <p>₹${p.price}</p>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      function openProduct(id) {
+        const product = products.find(p => p.id === id);
+        modalContent.innerHTML = `
+          <img src="${product.image}" alt="${product.name}">
+          <h2>${product.name}</h2>
+          <p>${product.description}</p>
+          <p><strong>${product.reviews}</strong></p>
+          <p style="font-size:1.2rem; font-weight:bold;">₹${product.price}</p>
+          <button onclick="addToCart(${product.id})">Add to Cart</button>
+        `;
+        modal.style.display = "flex";
+      }
+
+      function addToCart(id) {
+        const product = products.find(p => p.id === id);
+        alert(`${product.name} has been added to your cart!`);
+        modal.style.display = "none";
+      }
+
+      closeModal.addEventListener("click", () => modal.style.display = "none");
+      window.onclick = e => { if (e.target == modal) modal.style.display = "none"; }
+
+      renderProducts();
+    </script>
   </body>
 </html>
