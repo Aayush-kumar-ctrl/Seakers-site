@@ -1,11 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Initialize Clerk
+  // --- Clerk Integration Fix ---
   window.Clerk.load().then(() => {
-    document.getElementById("sign-in-btn").onclick = () => Clerk.openSignIn();
-    document.getElementById("sign-up-btn").onclick = () => Clerk.openSignUp();
+    const signInBtn = document.getElementById("sign-in-btn");
+    const signUpBtn = document.getElementById("sign-up-btn");
+
+    signInBtn.onclick = () => Clerk.openSignIn({ redirectUrl: window.location.href });
+    signUpBtn.onclick = () => Clerk.openSignUp({ redirectUrl: window.location.href });
   });
 
-  // Products data
+  // --- Products data ---
   const products = [
     {
       id: 1,
