@@ -1,26 +1,26 @@
 document.addEventListener("DOMContentLoaded", async function () {
-  // ✅ Wait for Clerk to load completely
+  // Wait until Clerk is fully loaded
   window.addEventListener("load", async () => {
     try {
-      await Clerk.load();
+      await window.Clerk.load();
 
-      // Attach sign-in & sign-up buttons
+      // Attach handlers once Clerk is ready
       const signInBtn = document.getElementById("sign-in-btn");
       const signUpBtn = document.getElementById("sign-up-btn");
 
-      if (signInBtn && signUpBtn) {
-        signInBtn.addEventListener("click", () => {
-          Clerk.openSignIn({ appearance: { layout: "modal" } });
-        });
+      if (signInBtn) signInBtn.addEventListener("click", () => Clerk.openSignIn());
+      if (signUpBtn) signUpBtn.addEventListener("click", () => Clerk.openSignUp());
 
-        signUpBtn.addEventListener("click", () => {
-          Clerk.openSignUp({ appearance: { layout: "modal" } });
-        });
-      }
+      console.log("✅ Clerk initialized successfully");
     } catch (err) {
-      console.error("❌ Clerk failed to load:", err);
+      console.error("❌ Clerk failed to initialize:", err);
+      alert("Clerk failed to load. Please check your internet or publishable key.");
     }
   });
+
+  // (keep your product grid and modal code below this part unchanged)
+});
+
 
   // ✅ Product data
   const products = [
