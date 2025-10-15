@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   // Wait until Clerk is fully loaded
   window.addEventListener("load", async () => {
     try {
+      await window.Clerk.load();
 
       // Attach handlers once Clerk is ready
       const signInBtn = document.getElementById("sign-in-btn");
