@@ -1,11 +1,13 @@
-// script.js - Clerk init (robust) + existing product/modal/cart behavior preserved
+// script.js - robust Clerk init + products/modal/add-to-cart (drop-in replacement)
+//
+// Paste this file as your script.js (replace existing). Keep your index.html and style.css unchanged.
+// Served on localhost (http://localhost:PORT) and ensure Clerk dashboard allowed origin includes that URL.
 
 (async function () {
-  // --- Robust Clerk loader ---------------------------------------
   const PUBLISHABLE_KEY = "pk_test_Y3Jpc3Ata29pLTM4LmNsZXJrLmFjY291bnRzLmRldiQ";
 
-  // Wait for the Clerk script to appear on window (max ~5s)
-  async function waitForClerk(timeout = 5000) {
+  // wait until Clerk script is present on window
+  async function waitForClerk(timeout = 7000) {
     const start = Date.now();
     while (!window.Clerk) {
       if (Date.now() - start > timeout) return null;
@@ -14,44 +16,50 @@
     return window.Clerk;
   }
 
+  // try to initialize Clerk safely
   try {
     const ClerkLib = await waitForClerk(7000);
-    if (!ClerkLib) throw new Error("Clerk script not found on window. Check script tag and network.");
+    if (!ClerkLib) throw new Error("Clerk script not found (check script tag/network).");
 
-    // Ensure Clerk is loaded with the publishable key (safe even if data attr exists)
+    // If data attribute exists in index.html this is safe; calling load with publishableKey is also safe
+    // Use the publishable key to be explicit
     await Clerk.load({ publishableKey: PUBLISHABLE_KEY });
 
-    // Attach button handlers after Clerk is ready
+    // Attach handlers after Clerk is ready
     const signInBtn = document.getElementById("sign-in-btn");
     const signUpBtn = document.getElementById("sign-up-btn");
 
-    if (signInBtn) signInBtn.addEventListener("click", () => Clerk.openSignIn({ appearance: { layout: "modal" } }));
-    if (signUpBtn) signUpBtn.addEventListener("click", () => Clerk.openSignUp({ appearance: { layout: "modal" } }));
-
-    // Optional: log current user to console (helps debug)
-    try {
-      if (Clerk.user) {
-        console.log("Clerk user loaded:", Clerk.user);
-      } else {
-        // subscribe to auth changes if you want to react later
-        if (Clerk.on) {
-          Clerk.on("user", (u) => console.log("Clerk user changed:", u));
+    if (signInBtn) {
+      signInBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        try {
+          Clerk.openSignIn({ appearance: { layout: "modal" } });
+        } catch (err) {
+          console.error("Clerk.openSignIn() error:", err);
+          alert("Unable to open Sign In — see console for details.");
         }
-      }
-    } catch (e) {
-      // non-fatal
-      console.warn("Clerk user check failed:", e);
+      });
     }
 
-    console.log("✅ Clerk initialized successfully");
+    if (signUpBtn) {
+      signUpBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        try {
+          Clerk.openSignUp({ appearance: { layout: "modal" } });
+        } catch (err) {
+          console.error("Clerk.openSignUp() error:", err);
+          alert("Unable to open Sign Up — see console for details.");
+        }
+      });
+    }
+
+    console.log("✅ Clerk initialized");
   } catch (err) {
-    console.error("❌ Clerk initialization error:", err);
-    // keep going: products/modal will still work
+    console.error("❌ Clerk initialization failed:", err);
+    // don't stop — continue to render products/modal
   }
 
-  // ----------------------------------------------------------------
-  // --- Existing product / modal / add-to-cart logic (unchanged) ---
-  // Products data (same as you had)
+  // ----------------- products / modal / add-to-cart (same behaviour as before) -----------------
   const products = [
     {
       id: 1,
@@ -87,16 +95,15 @@
     }
   ];
 
-  // DOM refs
   const grid = document.getElementById("product-grid");
   const modal = document.getElementById("product-modal");
   const modalContent = document.getElementById("modal-content");
   const closeModal = document.getElementById("close-modal");
 
-  // Render products
+  // render products
   if (grid) {
     grid.innerHTML = products.map(p => `
-      <div class="product-card" onclick="openProduct(${p.id})">
+      <div class="product-card" data-id="${p.id}">
         <img src="${p.image}" alt="${p.name}">
         <div class="product-info">
           <h3>${p.name}</h3>
@@ -104,10 +111,18 @@
         </div>
       </div>
     `).join('');
+
+    // attach click handlers (safer than inline onclick)
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const id = parseInt(card.getAttribute('data-id'), 10);
+        openProduct(id);
+      });
+    });
   }
 
-  // Modal handling (expose globally as before)
-  window.openProduct = function(id) {
+  // open product modal
+  window.openProduct = function (id) {
     const p = products.find(x => x.id === id);
     if (!p) return;
     modalContent.innerHTML = `
@@ -116,21 +131,28 @@
       <p>${p.description}</p>
       <p><strong>${p.reviews}</strong></p>
       <p style="font-size:1.2rem;font-weight:bold;">₹${p.price}</p>
-      <button onclick="addToCart(${p.id})">Add to Cart</button>
+      <button id="modal-add-btn">Add to Cart</button>
     `;
-    if (modal) modal.style.display = "flex";
-  }
+    modal.style.display = "flex";
 
-  window.addToCart = function(id) {
+    const addBtn = document.getElementById('modal-add-btn');
+    if (addBtn) {
+      addBtn.addEventListener('click', () => {
+        addToCart(p.id);
+      });
+    }
+  };
+
+  // add to cart behavior (unchanged alert)
+  window.addToCart = function (id) {
     const p = products.find(x => x.id === id);
     if (!p) return;
     alert(`${p.name} added to cart!`);
     if (modal) modal.style.display = "none";
-  }
+  };
 
-  if (closeModal) closeModal.onclick = () => { if (modal) modal.style.display = "none"; };
-  window.onclick = e => { if (e.target == modal) { if (modal) modal.style.display = "none"; } };
+  // modal close handlers
+  if (closeModal) closeModal.addEventListener('click', () => { if (modal) modal.style.display = 'none'; });
+  window.addEventListener('click', (e) => { if (e.target === modal) { if (modal) modal.style.display = 'none'; } });
 
-  // ----------------------------------------------------------------
-  // end of script
 })();
