@@ -1,120 +1,94 @@
-// script.js
-// Robust Clerk loader (will inject SDK if missing) + product grid + modal + add-to-cart
-// Replace your script.js with this file. Keep index.html and style.css unchanged.
-// Serve over http://localhost:PORT (not file://). If Clerk still fails, check DevTools Console.
+// script.js — Clean, Efficient, and Robust
+// Handles Clerk authentication + Product grid + Modal + Add to Cart
 
 (async function () {
   const PUBLISHABLE_KEY = "pk_test_Y3Jpc3Ata29pLTM4LmNsZXJrLmFjY291bnRzLmRldiQ";
   const CLERK_CDN = "https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js";
 
-  // Utility: sleep
+  // Sleep helper
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-  // Utility: inject clerk script if not present
-  async function ensureClerkScript() {
+  // Inject Clerk SDK if missing
+  async function loadClerk() {
     if (window.Clerk) return true;
-    // Avoid duplicates
-    if (document.querySelector(`script[data-clerk-injected="true"]`)) {
-      // script already injected, wait for it
-    } else {
-      const s = document.createElement("script");
-      s.src = CLERK_CDN;
-      s.async = true;
-      s.crossOrigin = "anonymous";
-      s.setAttribute("data-clerk-publishable-key", PUBLISHABLE_KEY);
-      s.setAttribute("data-clerk-injected", "true");
-      document.head.appendChild(s);
+
+    if (!document.querySelector("script[data-clerk-injected]")) {
+      const script = document.createElement("script");
+      script.src = CLERK_CDN;
+      script.async = true;
+      script.crossOrigin = "anonymous";
+      script.setAttribute("data-clerk-publishable-key", PUBLISHABLE_KEY);
+      script.setAttribute("data-clerk-injected", "true");
+      document.head.appendChild(script);
     }
 
-    // wait up to timeout for window.Clerk to appear
-    const start = Date.now();
-    const timeout = 9000;
-    while (!window.Clerk && Date.now() - start < timeout) {
-      await sleep(50);
-    }
+    const start = Date.now(), timeout = 9000;
+    while (!window.Clerk && Date.now() - start < timeout) await sleep(50);
     return !!window.Clerk;
   }
 
-  // Ensure Clerk available and initialized
+  // Initialize Clerk (only once)
   async function initClerk() {
     try {
-      const present = await ensureClerkScript();
-      if (!present) throw new Error("Clerk SDK not found after injection.");
+      const ready = await loadClerk();
+      if (!ready) throw new Error("Clerk SDK failed to load.");
 
-      // Some builds expose Clerk as default; ensure we have functions
+      // Load the Clerk client
       if (typeof Clerk.load === "function") {
-        await Clerk.load({ publishableKey: PUBLISHABLE_KEY }).catch((e) => {
-          // non-fatal fallback: log and continue
-          console.warn("Clerk.load rejected:", e);
-        });
+        await Clerk.load({ publishableKey: PUBLISHABLE_KEY });
       }
 
-      // Wait until openSignIn/openSignUp available (short poll)
-      const start = Date.now();
-      const timeout = 7000;
-      while ((typeof Clerk.openSignIn !== "function" || typeof Clerk.openSignUp !== "function") && Date.now() - start < timeout) {
-        await sleep(50);
-      }
+      // Wait for modal functions to exist
+      const start = Date.now(), timeout = 7000;
+      while (
+        (!Clerk.openSignIn || !Clerk.openSignUp) &&
+        Date.now() - start < timeout
+      ) await sleep(50);
 
-      if (typeof Clerk.openSignIn !== "function" || typeof Clerk.openSignUp !== "function") {
-        console.warn("Clerk loaded but openSignIn/openSignUp unavailable. Clerk object:", Clerk);
-        // still attach defensive handlers that will try later
-      }
-
-      attachClerkHandlers();
-      console.info("Clerk initialization attempted.");
+      attachAuthButtons();
+      console.info("✅ Clerk initialized successfully");
     } catch (err) {
-      console.error("Clerk initialization error:", err);
-      // don't block app; product grid will still render
+      console.error("❌ Clerk initialization error:", err);
     }
   }
 
-  // Attach handlers (safe to call multiple times)
-  function attachClerkHandlers() {
-    const signInBtn = document.getElementById("sign-in-btn");
-    const signUpBtn = document.getElementById("sign-up-btn");
-
-    if (signInBtn) {
-      signInBtn.replaceWith(signInBtn.cloneNode(true)); // remove previous listeners
+  // Generic safe handler for Clerk actions
+  function handleClerkAction(action, label) {
+    if (window.Clerk && typeof action === "function") {
+      try {
+        action({ appearance: { layout: "modal" } });
+      } catch (err) {
+        console.error(`${label} error:`, err);
+        alert(`${label} failed (see console).`);
+      }
+    } else {
+      alert(`${label} not ready yet. Please try again.`);
     }
-    if (signUpBtn) {
-      signUpBtn.replaceWith(signUpBtn.cloneNode(true));
-    }
+  }
 
-    const sIn = document.getElementById("sign-in-btn");
-    const sUp = document.getElementById("sign-up-btn");
+  // Attach button handlers
+  function attachAuthButtons() {
+    const map = [
+      ["sign-in-btn", () => handleClerkAction(Clerk.openSignIn, "Sign In")],
+      ["sign-up-btn", () => handleClerkAction(Clerk.openSignUp, "Sign Up")],
+    ];
 
-    if (sIn) {
-      sIn.addEventListener("click", (e) => {
+    for (const [id, handler] of map) {
+      const btn = document.getElementById(id);
+      if (!btn) continue;
+      const clone = btn.cloneNode(true); // remove old listeners
+      btn.replaceWith(clone);
+      clone.addEventListener("click", (e) => {
         e.preventDefault();
-        if (window.Clerk && typeof Clerk.openSignIn === "function") {
-          try { Clerk.openSignIn({ appearance: { layout: "modal" } }); }
-          catch (err) { console.error("Clerk.openSignIn threw:", err); alert("Failed to open Sign In (see console)."); }
-        } else {
-          console.warn("Clerk not ready for openSignIn:", window.Clerk);
-          alert("Sign In not ready yet. Try again in a moment.");
-        }
-      });
-    }
-
-    if (sUp) {
-      sUp.addEventListener("click", (e) => {
-        e.preventDefault();
-        if (window.Clerk && typeof Clerk.openSignUp === "function") {
-          try { Clerk.openSignUp({ appearance: { layout: "modal" } }); }
-          catch (err) { console.error("Clerk.openSignUp threw:", err); alert("Failed to open Sign Up (see console)."); }
-        } else {
-          console.warn("Clerk not ready for openSignUp:", window.Clerk);
-          alert("Sign Up not ready yet. Try again in a moment.");
-        }
+        handler();
       });
     }
   }
 
-  // Start Clerk init but don't await forever (so page renders promptly)
+  // Start Clerk initialization (don’t block rest of UI)
   initClerk();
 
-  // ----------------- products / modal / add-to-cart (unchanged) -----------------
+  // ----------------- Product Grid + Modal + Cart -----------------
   const products = [
     {
       id: 1,
@@ -155,7 +129,7 @@
   const modalContent = document.getElementById("modal-content");
   const closeModal = document.getElementById("close-modal");
 
-  // Render products
+  // Render product grid
   if (grid) {
     grid.innerHTML = products.map(p => `
       <div class="product-card" data-id="${p.id}">
@@ -167,21 +141,16 @@
       </div>
     `).join('');
 
-    // attach click handlers
-    document.querySelectorAll('.product-card').forEach(card => {
-      card.addEventListener('click', () => {
-        const id = parseInt(card.getAttribute('data-id'), 10);
-        openProduct(id);
-      });
+    grid.querySelectorAll('.product-card').forEach(card => {
+      card.addEventListener('click', () => openProduct(+card.dataset.id));
     });
-  } else {
-    console.warn("product-grid not found");
   }
 
-  // open product modal
-  window.openProduct = function (id) {
+  // Modal logic
+  function openProduct(id) {
     const p = products.find(x => x.id === id);
     if (!p) return;
+
     modalContent.innerHTML = `
       <img src="${p.image}" alt="${p.name}">
       <h2>${p.name}</h2>
@@ -190,24 +159,18 @@
       <p style="font-size:1.2rem;font-weight:bold;">₹${p.price}</p>
       <button id="modal-add-btn">Add to Cart</button>
     `;
-    if (modal) modal.style.display = "flex";
 
-    const addBtn = document.getElementById('modal-add-btn');
-    if (addBtn) {
-      addBtn.addEventListener('click', () => {
-        addToCart(p.id);
-      });
-    }
-  };
+    modal.style.display = "flex";
 
-  window.addToCart = function (id) {
-    const p = products.find(x => x.id === id);
-    if (!p) return;
-    alert(`${p.name} added to cart!`);
-    if (modal) modal.style.display = "none";
-  };
+    document.getElementById("modal-add-btn").onclick = () => {
+      alert(`${p.name} added to cart!`);
+      modal.style.display = "none";
+    };
+  }
 
-  if (closeModal) closeModal.addEventListener('click', () => { if (modal) modal.style.display = 'none'; });
-  window.addEventListener('click', (e) => { if (e.target === modal) { if (modal) modal.style.display = 'none'; } });
-
+  // Modal close behavior
+  closeModal?.addEventListener("click", () => (modal.style.display = "none"));
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) modal.style.display = "none";
+  });
 })();
