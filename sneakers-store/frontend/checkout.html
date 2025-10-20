@@ -1,52 +1,70 @@
-<script
-  async
-  crossorigin="anonymous"
-  data-clerk-publishable-key="pk_test_Y3Jpc3Ata29pLTM4LmNsZXJrLmFjY291bnRzLmRldiQ"
-  src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest"
-></script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout - Old Skool</title>
+    <link rel="stylesheet" href="style.css" />
 
-<script>
-  window.addEventListener("DOMContentLoaded", async () => {
-    await window.Clerk.load();
+    <!-- Clerk SDK -->
+    <script
+      async
+      crossorigin="anonymous"
+      data-clerk-publishable-key="pk_test_Y3Jpc3Ata29pLTM4LmNsZXJrLmFjY291bnRzLmRldiQ"
+      src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest"
+    ></script>
+  </head>
 
-    // Redirect if user not signed in
-    if (!Clerk.user) {
-      alert("Please sign in first to continue checkout.");
-      window.location.href = "index.html";
-      return;
-    }
+  <body>
+    <header>
+      <h1>🛍️ Checkout</h1>
+    </header>
 
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const checkoutContainer = document.getElementById("checkout-container");
+    <section id="checkout-container" style="padding: 30px;"></section>
 
-    if (cart.length === 0) {
-      checkoutContainer.innerHTML = `<p>Your cart is empty.</p>`;
-      return;
-    }
+    <script>
+      window.addEventListener("DOMContentLoaded", async () => {
+        await window.Clerk.load();
 
-    let total = 0;
-    checkoutContainer.innerHTML = cart.map(p => {
-      total += p.price;
-      return `
-        <div class="checkout-item">
-          <img src="${p.image}" alt="${p.name}">
-          <div>
-            <h3>${p.name}</h3>
-            <p>₹${p.price}</p>
-          </div>
-        </div>
-      `;
-    }).join('');
+        if (!Clerk.user) {
+          alert("Please sign in first to continue checkout.");
+          window.location.href = "index.html";
+          return;
+        }
 
-    checkoutContainer.innerHTML += `
-      <h2>Total: ₹${total}</h2>
-      <button onclick="placeOrder()">Place Order</button>
-    `;
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const container = document.getElementById("checkout-container");
 
-    window.placeOrder = () => {
-      alert("Order placed successfully! 🎉");
-      localStorage.removeItem("cart");
-      window.location.href = "index.html";
-    };
-  });
-</script>
+        if (cart.length === 0) {
+          container.innerHTML = `<h3>Your cart is empty.</h3>`;
+          return;
+        }
+
+        let total = 0;
+        container.innerHTML = cart.map(item => {
+          total += item.price;
+          return `
+            <div class="checkout-item" style="display:flex;align-items:center;gap:15px;margin-bottom:15px;">
+              <img src="${item.image}" width="80" height="80" style="border-radius:8px;">
+              <div>
+                <h3>${item.name}</h3>
+                <p>₹${item.price}</p>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        container.innerHTML += `
+          <h2>Total: ₹${total}</h2>
+          <button onclick="placeOrder()" style="padding:10px 20px; background:black;color:white;border:none;border-radius:8px;cursor:pointer;">Place Order</button>
+        `;
+
+        window.placeOrder = () => {
+          alert("Order placed successfully! 🎉");
+          localStorage.removeItem("cart");
+          window.location.href = "index.html";
+        };
+      });
+    </script>
+  </body>
+</html>
