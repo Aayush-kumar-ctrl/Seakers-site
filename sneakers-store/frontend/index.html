@@ -4,8 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Old Skool Store</title>
-
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
 
     <!-- Clerk SDK -->
@@ -19,22 +17,18 @@
 
   <body>
     <header>
-      <h1>Old Skool</h1>
+      <h1>🕶️ Old Skool</h1>
       <div class="auth-buttons">
         <button id="sign-in-btn">Sign In</button>
         <button id="sign-up-btn">Sign Up</button>
-        <button id="sign-up-btn">Register</button>
+        <button id="sign-out-btn" style="display:none;">Sign Out</button>
+        <button id="checkout-btn">🛒 Checkout</button>
       </div>
     </header>
 
-    <div class="hero">
+    <section class="hero">
       <h2>Where Vintage Meets Cool</h2>
-      <h2>Vintage Is Cool</h2>
-    </div>
-
-    <div class="hero">
-      <h2>Get Your Collection Now</h2>
-    </div>
+    </section>
 
     <section class="products-section">
       <h2>Our Collection</h2>
@@ -45,13 +39,11 @@
       <p>&copy; 2025 Old Skool. All rights reserved.</p>
     </footer>
 
-    <!-- Product Modal -->
     <div class="modal" id="product-modal">
       <span class="close" id="close-modal">&times;</span>
       <div class="modal-content" id="modal-content"></div>
     </div>
 
-    <!-- JavaScript -->
     <script src="script.js"></script>
   </body>
 </html>
