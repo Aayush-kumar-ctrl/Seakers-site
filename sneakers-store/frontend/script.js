@@ -49,14 +49,21 @@ document.addEventListener("DOMContentLoaded", async function () {
       description: "Soft cotton tee featuring old-school print.",
     },
      {
-      id: 3,
+      id: 4,
       name: "Vintage Graphic Tee",
       price: 1299,
       image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c",
       description: "Soft cotton tee featuring old-school print.",
     },
     {
-      id: 3,
+      id: 5,
+      name: "Vintage Graphic Tee",
+      price: 1299,
+      image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c",
+      description: "Soft cotton tee featuring old-school print.",
+    },
+    {
+      id: 6,
       name: "Vintage Graphic Tee",
       price: 1299,
       image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c",
