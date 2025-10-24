@@ -17,17 +17,18 @@
 
   <body>
     <header>
-      <h1>🛍️ Checkout</h1>
+      <h1>🧾 Checkout</h1>
+      <a href="index.html" class="checkout-btn">← Back to Store</a>
     </header>
 
-    <section id="checkout-container" style="padding: 30px;"></section>
+    <section id="checkout-container" class="checkout-container"></section>
 
     <script>
       window.addEventListener("DOMContentLoaded", async () => {
         await window.Clerk.load();
 
         if (!Clerk.user) {
-          alert("Please sign in first to continue checkout.");
+          alert("Please sign in to continue checkout.");
           window.location.href = "index.html";
           return;
         }
@@ -36,31 +37,34 @@
         const container = document.getElementById("checkout-container");
 
         if (cart.length === 0) {
-          container.innerHTML = `<h3>Your cart is empty.</h3>`;
+          container.innerHTML = `<h3>Your cart is empty 🛒</h3>`;
           return;
         }
 
         let total = 0;
-        container.innerHTML = cart.map(item => {
-          total += item.price;
-          return `
-            <div class="checkout-item" style="display:flex;align-items:center;gap:15px;margin-bottom:15px;">
-              <img src="${item.image}" width="80" height="80" style="border-radius:8px;">
-              <div>
-                <h3>${item.name}</h3>
-                <p>₹${item.price}</p>
+        container.innerHTML = cart
+          .map((item) => {
+            total += item.price;
+            return `
+              <div class="checkout-item">
+                <img src="${item.image}" width="80" height="80" />
+                <div>
+                  <h3>${item.name}</h3>
+                  <p>₹${item.price}</p>
+                </div>
               </div>
-            </div>
-          `;
-        }).join('');
+            `;
+          })
+          .join("");
 
         container.innerHTML += `
+          <hr />
           <h2>Total: ₹${total}</h2>
-          <button onclick="placeOrder()" style="padding:10px 20px; background:black;color:white;border:none;border-radius:8px;cursor:pointer;">Place Order</button>
+          <button onclick="placeOrder()" class="checkout-btn">Place Order ✅</button>
         `;
 
         window.placeOrder = () => {
-          alert("Order placed successfully! 🎉");
+          alert("🎉 Order placed successfully!");
           localStorage.removeItem("cart");
           window.location.href = "index.html";
         };
