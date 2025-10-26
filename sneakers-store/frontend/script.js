@@ -66,7 +66,6 @@ window.addEventListener("DOMContentLoaded", async () => {
       showToast(`${product.name} is already in your cart!`);
       return;
     }
-
     cart.push(product);
     localStorage.setItem("cart", JSON.stringify(cart));
 
