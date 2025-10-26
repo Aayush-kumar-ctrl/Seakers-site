@@ -13,7 +13,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   // 📦 Dummy Product Data (replace with your own or import from products.js)
   const products = [
-    { id: 1, name: "Classic T-Shirt", price: 499, image: "images/tshirt.jpg" },
+    { id: 1, name: "Classic T-Shirt", price: 599, image: "images/tshirt.jpg" },
     { id: 2, name: "Stylish Shoes", price: 1299, image: "images/shoes.jpg" },
     { id: 3, name: "Wrist Watch", price: 899, image: "images/watch.jpg" },
     { id: 4, name: "Denim Jeans", price: 999, image: "images/jeans.jpg" },
