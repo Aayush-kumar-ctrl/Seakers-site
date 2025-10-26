@@ -11,6 +11,25 @@ body {
   color: #111;
   line-height: 1.6;
 }
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #333;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  opacity: 0.9;
+  z-index: 9999;
+  animation: fadeInOut 2s ease;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(20px); }
+  10%, 90% { opacity: 0.9; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(20px); }
+}
 
 /* ===== HEADER ===== */
 header {
