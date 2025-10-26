@@ -54,7 +54,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     )
     .join("");
 
-  // 🛒 Add to Cart (Stored in LocalStorage)
+  // 🛒 Add to Cart (Stored in LocalStorage)?? browser memory /
   window.addToCart = (id) => {
     const product = products.find((p) => p.id === id);
     if (!product) return;
