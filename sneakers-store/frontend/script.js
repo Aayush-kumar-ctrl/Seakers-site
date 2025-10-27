@@ -17,6 +17,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     { id: 2, name: "Stylish Shoes", price: 1299, image: "images/shoes.jpg" },
     { id: 3, name: "Wrist Watch", price: 899, image: "images/watch.jpg" },
     { id: 4, name: "Denim Jeans", price: 999, image: "images/jeans.jpg" },
+    { id: 5, name: "straight fit", price: 2999, image: "images/fitjeans.jpg" },
+
   ];
 
   // 👤 Clerk Authentication Logic
