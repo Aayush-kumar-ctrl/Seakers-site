@@ -40,7 +40,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     window.location.reload();
   };
 
-  // 🛍️ Render Product Grid
+  // 🛍️ Render Product Grid, grid display 
   grid.innerHTML = products
     .map(
       (p) => `
