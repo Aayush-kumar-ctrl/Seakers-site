@@ -34,7 +34,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     signUpBtn.onclick = () => Clerk.openSignUp();
   }
 
-  // 🚪 Sign-Out Function
+  // 🚪 Sign-Out Function, to signout for a logged in user
   signOutBtn.onclick = async () => {
     await Clerk.signOut();
     window.location.reload();
