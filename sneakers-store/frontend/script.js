@@ -81,7 +81,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     window.location.href = "checkout.html";
   };
 
-  // 🔔 Simple Toast Notification (instead of alerts)
+  // 🔔 Simple Toast Notification (instead of alerts), development
   function showToast(message) {
     let toast = document.createElement("div");
     toast.textContent = message;
