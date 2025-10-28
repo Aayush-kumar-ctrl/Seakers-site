@@ -15,7 +15,7 @@ const products = [
   },
   {
     id: 3,
-    name: "Old Skool Shoes",
+    name: "rexin Shoes",
     price: 3999,
     image: "./assets/shoes.jpg",
     description: "Timeless sneakers with the old skool charm."
