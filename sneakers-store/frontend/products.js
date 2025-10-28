@@ -8,7 +8,7 @@ const products = [
   },
   {
     id: 2,
-    name: "Vintage Jacket",
+    name: "leather Jacket",
     price: 2999,
     image: "./assets/jacket.jpg",
     description: "Classic retro leather jacket for the cool old-school vibe."
