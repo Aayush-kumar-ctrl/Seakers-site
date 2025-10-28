@@ -18,7 +18,7 @@ const products = [
     name: "rexin Shoes",
     price: 3999,
     image: "./assets/shoes.jpg",
-    description: "Timeless sneakers with the old skool charm."
+    description: "Timeless sneakers with the old vintage charm."
   }
 ];
 
