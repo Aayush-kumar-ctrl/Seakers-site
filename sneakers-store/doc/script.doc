@@ -1,0 +1,11 @@
+/* window.addEventListener("DOMContentLoaded", async () => { ... })
+ 
+If you want your page to feel fast, show your UI right after DOMContentLoaded.
+If you need to hide a loading spinner or start animations after all assets are ready, use window.onload.
+
+
+
+
+
+*/
+
