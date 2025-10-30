@@ -1,7 +1,7 @@
 // script.js
-
+// Waits for the HTML document to fully load before running the script.
 window.addEventListener("DOMContentLoaded", async () => {
-  // 🧩 Initialize Clerk (authentication)
+  //Clerk.load(): Initializes Clerk, a user authentication service
   await window.Clerk.load();
 
   // 🎯 Get important DOM elements
