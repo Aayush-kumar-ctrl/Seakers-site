@@ -190,6 +190,25 @@ image: "images/tshirt.jpg" → path to the product’s image file in your projec
 
 -------------------------------------------------------------------------------------
 
+{ id: 5, name: "straight fit", price: 2999, image: "images/fitjeans.jpg" },
+Final product in the list.
+
+js
+Copy code
+];
+🟢 Explanation:
+This closes the array started earlier.
+So now, products holds five objects, each representing a product.
+
+✅ In simple terms:
+You have created a list of products where each product has 4 properties:
+id, name, price, and image.
+
+You can use this list to dynamically show products on your webpage — for example, inside a product grid, cart, or checkout page.
+
+--------------------------------------------------------------------------------------------------
+
+
 
 
 
