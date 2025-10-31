@@ -141,6 +141,23 @@ grid.innerHTML = "<p>Products will load here...</p>";
 This makes the code shorter, cleaner, and faster to execute.
 
 -------------------------------------------------------------------------------------------------
+// 📦 Dummy Product Data (replace with your own or import from products.js)
+  const products = [
+    { id: 1, name: "Classic T-Shirt", price: 599, image: "images/tshirt.jpg" },
+    { id: 2, name: "Stylish Shoes", price: 1299, image: "images/shoes.jpg" },
+    { id: 3, name: "Wrist Watch", price: 899, image: "images/watch.jpg" },
+    { id: 4, name: "Denim Jeans", price: 999, image: "images/jeans.jpg" },
+    { id: 5, name: "straight fit", price: 2999, image: "images/fitjeans.jpg" },
+
+  ];
+
+  // 📦 Dummy Product Data (replace with your own or import from products.js)
+🟢 Explanation:
+This is just a comment in JavaScript.
+It says:
+👉 The following list of products is dummy data — meaning it’s temporary sample data, not real data from a database or API.
+👉 Later, you can replace this with your own products or import real data from another file (products.js).
+
 
 
 
