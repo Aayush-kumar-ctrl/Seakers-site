@@ -158,6 +158,21 @@ It says:
 👉 The following list of products is dummy data — meaning it’s temporary sample data, not real data from a database or API.
 👉 Later, you can replace this with your own products or import real data from another file (products.js).
 
+----------------------------------------------------------------------------------------------
+
+const products = [
+🟢 Explanation:
+
+const means you’re declaring a constant variable — its reference cannot be changed later.
+
+products is the name of the variable.
+
+= assigns a value to it.
+
+[ starts an array — a list that can hold multiple items.
+
+So, products is an array of product objects.
+-----------------------------------------------------------------------------
 
 
 
