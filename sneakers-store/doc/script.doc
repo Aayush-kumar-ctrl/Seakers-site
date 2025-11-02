@@ -209,6 +209,17 @@ You can use this list to dynamically show products on your webpage — for examp
 --------------------------------------------------------------------------------------------------
       <p>&copy; 2025 Old Skool copyright.</p>
 this is the tag used for displaying the copyright info
+-----------------------------------------------------------------------
+
+🟢 **Explanation:**  
+This is a **comment** describing what this section of code does —  
+It handles **user authentication logic** using **Clerk** (to detect if a user is signed in or not and show/hide buttons accordingly).
+
+---
+
+### ```js
+const user = Clerk.user;
+
 
 
 
