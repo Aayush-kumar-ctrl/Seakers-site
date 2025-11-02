@@ -207,7 +207,8 @@ id, name, price, and image.
 You can use this list to dynamically show products on your webpage — for example, inside a product grid, cart, or checkout page.
 
 --------------------------------------------------------------------------------------------------
-
+      <p>&copy; 2025 Old Skool copyright.</p>
+this is the tag used for displaying the copyright info
 
 
 
