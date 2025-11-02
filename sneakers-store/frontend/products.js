@@ -19,15 +19,23 @@ const products = [
     price: 3999,
     image: "./assets/shoes.jpg",
     description: "Timeless sneakers with the old vintage charm."
-  }
+  },
 
-   {
-    id: 3,
+  {
+   id: 3,
     name: "rexin Shoes",
     price: 3999,
     image: "./assets/shoes.jpg",
     description: "Timeless sneakers with the old vintage charm."
-  }
+  },
+  { 
+    id: 2,
+    name: "leather Jacket",
+    price: 2999,
+    image: "./assets/jacket.jpg",
+    description: "Classic retro leather jacket for the cool old-school vibe."
+  },
+  
   
 ];
 
