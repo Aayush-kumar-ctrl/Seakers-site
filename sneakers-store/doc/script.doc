@@ -275,7 +275,39 @@ When you click Sign-Up, it calls Clerk.openSignUp() — this opens the sign-up p
 So these functions show Clerk’s authentication modal windows.
 
 -----------------------------------------------------------------------------------------------------
+```js
 
+// 🚪 Sign-Out Function, to signout for a logged in user
+signOutBtn.onclick = async () => {
+await Clerk.signOut();
+window.location.reload();
+};
+
+🟢 **Explanation:**  
+This sets the **sign-out button’s click action** — even if the user is logged in.
+
+Let’s break it down:
+- `signOutBtn.onclick = async () => { ... }`
+  → assigns an **asynchronous arrow function** to run when the button is clicked.
+
+Inside it:
+
+1️⃣ `await Clerk.signOut();`  
+   → calls Clerk’s `signOut()` function, which logs the user out.  
+   → The `await` keyword makes the code **wait** until Clerk finishes signing out (like waiting for a promise to resolve).
+
+2️⃣ `window.location.reload();`  
+   → reloads the entire webpage, so the UI updates immediately (showing sign-in buttons again instead of sign-out).
+
+---
+
+✅ **In short:**  
+This block checks if a user is logged in using Clerk.  
+- If **logged in** → hide sign-in/up buttons, show sign-out.  
+- If **not logged in** → show sign-in/up buttons, hide sign-out.  
+- When **sign-out** is clicked → sign out through Clerk and reload the page.
+
+-----------------------------------------------------------------------------------
 
 
 
