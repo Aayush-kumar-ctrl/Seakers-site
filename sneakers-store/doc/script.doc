@@ -215,10 +215,37 @@ this is the tag used for displaying the copyright info
 This is a **comment** describing what this section of code does —  
 It handles **user authentication logic** using **Clerk** (to detect if a user is signed in or not and show/hide buttons accordingly).
 
+---------------------------------------------------------------------------------------------------
+
+```js
+
+if (user) {
+
+🟢 **Explanation:**  
+This checks whether a user exists (i.e., if someone is logged in).  
+
+If `user` is **truthy** (not `null`), then run the code inside this block.
+
 ---
 
 ### ```js
-const user = Clerk.user;
+// If user is logged in
+signInBtn.style.display = "none";
+signUpBtn.style.display = "none";
+signOutBtn.style.display = "inline-block";
+
+
+🟢 Explanation:
+When a user is logged in:
+
+The Sign-In button (signInBtn) is hidden → display: none
+
+The Sign-Up button (signUpBtn) is hidden → display: none
+
+The Sign-Out button (signOutBtn) becomes visible → display: inline-block
+
+✅ Meaning: once logged in, only the Sign-Out option should be visible.
+---------------------------------------------------------------------------------------
 
 
 
