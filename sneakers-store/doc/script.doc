@@ -247,6 +247,34 @@ The Sign-Out button (signOutBtn) becomes visible → display: inline-block
 ✅ Meaning: once logged in, only the Sign-Out option should be visible.
 ---------------------------------------------------------------------------------------
 
+} else {
+
+🟢 **Explanation:**  
+If the user is **not logged in**, then execute the code inside the `else` block.
+
+---
+
+### ```js
+// If user is NOT logged in
+signOutBtn.style.display = "none";
+signInBtn.onclick = () => Clerk.openSignIn();
+signUpBtn.onclick = () => Clerk.openSignUp();
+
+
+🟢 Explanation:
+If nobody is logged in:
+
+Hide the Sign-Out button.
+
+Assign actions (event handlers) to the Sign-In and Sign-Up buttons:
+
+When you click Sign-In, it calls Clerk.openSignIn() — this opens Clerk’s built-in sign-in popup.
+
+When you click Sign-Up, it calls Clerk.openSignUp() — this opens the sign-up popup.
+
+So these functions show Clerk’s authentication modal windows.
+
+-----------------------------------------------------------------------------------------------------
 
 
 
