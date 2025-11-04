@@ -367,5 +367,27 @@ If p is { id: 1, name: "Laptop", price: 60000, image: "laptop.jpg" },
 
 -------------------------------------------------------------------------------------------
 
+4. .join("")
+
+After .map() runs, you get an array of HTML strings like:
+
+["<div>...</div>", "<div>...</div>", "<div>...</div>"]
+
+
+.join("") merges them into one long string (no commas in between).
+
+This single string is assigned to grid.innerHTML.
+
+-------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
 */
 
