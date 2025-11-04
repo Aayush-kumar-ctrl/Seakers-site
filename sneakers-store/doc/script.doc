@@ -333,7 +333,22 @@ grid is a reference to an HTML element on the page (like a <div id="grid">).
 
 ==========================================================================================================================
 
+2. products.map((p) => ... )
 
+products is expected to be an array of product objects.
+Example:
+
+const products = [
+  { id: 1, name: "Laptop", price: 60000, image: "laptop.jpg" },
+  { id: 2, name: "Headphones", price: 2000, image: "headphones.jpg" }
+];
+
+
+The .map() method loops through each product (called p) in the array.
+
+For each product, it returns a block of HTML (a template string).
+
+------------------------------------------------------------------------------------------------------
 
 
 
