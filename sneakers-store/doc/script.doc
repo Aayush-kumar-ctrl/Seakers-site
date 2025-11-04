@@ -350,7 +350,22 @@ For each product, it returns a block of HTML (a template string).
 
 ------------------------------------------------------------------------------------------------------
 
+3. Template string:
 
+Each product p generates this HTML structure:
+
+<div class="product-card">
+  <img src="(product image)" alt="(product name)">
+  <h3>(product name)</h3>
+  <p>₹(product price)</p>
+  <button onclick="addToCart(product id)">Add to Cart 🛒</button>
+</div>
+
+
+For example:
+If p is { id: 1, name: "Laptop", price: 60000, image: "laptop.jpg" },
+
+-------------------------------------------------------------------------------------------
 
 */
 
