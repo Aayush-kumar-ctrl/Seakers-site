@@ -380,6 +380,18 @@ This single string is assigned to grid.innerHTML.
 
 -------------------------------------------------------------------------------
 
+6. The addToCart(${p.id}) function
+
+When the user clicks “Add to Cart 🛒”, it calls a JavaScript function:
+
+addToCart(1);
+
+
+(where 1 is the product’s ID)
+
+This function is likely defined elsewhere in your code to handle shopping cart logic.
+----------------------------------------------------------------------------
+
 
 
 
