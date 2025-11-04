@@ -309,6 +309,31 @@ This block checks if a user is logged in using Clerk.
 
 -----------------------------------------------------------------------------------
 
+🧩 Code:
+// 🛍️ Render Product Grid, grid display 
+grid.innerHTML = products
+  .map(
+    (p) => `
+      <div class="product-card">
+        <img src="${p.image}" alt="${p.name}">
+        <h3>${p.name}</h3>
+        <p>₹${p.price}</p>
+        <button onclick="addToCart(${p.id})">Add to Cart 🛒</button>
+      </div>
+    `
+  )
+  .join("");
+
+🧠 Step-by-Step Explanation:
+1. grid.innerHTML = ...
+
+grid is a reference to an HTML element on the page (like a <div id="grid">).
+
+.innerHTML replaces all of its existing HTML with new HTML content — in this case, the generated product cards.
+
+==========================================================================================================================
+
+
 
 
 
