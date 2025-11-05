@@ -28,14 +28,6 @@ const products = [
     image: "./assets/shoes.jpg",
     description: "Timeless sneakers with the old vintage charm."
   },
-  { 
-    id: 2,
-    name: "leather Jacket",
-    price: 2999,
-    image: "./assets/jacket.jpg",
-    description: "Classic retro leather jacket for the cool old-school vibe."
-  },
-  
   
 ];
 
