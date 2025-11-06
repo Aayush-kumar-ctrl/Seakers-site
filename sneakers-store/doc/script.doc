@@ -422,7 +422,25 @@ If empty, it initializes an empty array [].
 
 ========================================================================================
 
+  if (cart.find((p) => p.id === id)) {
+    showToast(`${product.name} is already in your cart!`);
+    return;
+  }
 
+Checks if the item is already in the cart.
+If yes → shows a toast message and stops execution.
+
+✅ Adding the Product to Cart
+  cart.push(product);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  showToast(`${product.name} added to cart ✅`);
+};
+Adds (pushes) the product object to the cart array.
+
+Converts the array back to JSON with JSON.stringify() and saves it to localStorage.
+
+Shows a success message using the custom showToast() function.
+----------------------------------------------------------------------------------------------
 
 
 
