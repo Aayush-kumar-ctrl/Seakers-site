@@ -392,60 +392,36 @@ addToCart(1);
 This function is likely defined elsewhere in your code to handle shopping cart logic.
 ----------------------------------------------------------------------------
 
-✅ Code:
-#include <bits/stdc++.h>
-using namespace std;
+🧩 Overview
 
-class Solution {
-public:
-    vector<vector<int>> merge(vector<vector<int>>& intervals) {
-        // Step 1: Sort intervals by their start time
-        sort(intervals.begin(), intervals.end());
+This code handles adding products to a shopping cart and checkout actions on an e-commerce site.
+It also uses localStorage to store the cart items — so even if you refresh or close the page, the cart stays saved in your browser.
 
-        vector<vector<int>> merged;
-        
-        // Step 2: Iterate through each interval
-        for (auto interval : intervals) {
-            // If merged is empty or no overlap, add new interval
-            if (merged.empty() || merged.back()[1] < interval[0]) {
-                merged.push_back(interval);
-            } else {
-                // Overlapping intervals — merge them
-                merged.back()[1] = max(merged.back()[1], interval[1]);
-            }
-        }
+🛒 addToCart Function
+window.addToCart = (id) => {
+  const product = products.find((p) => p.id === id);
+  if (!product) return;
 
-        return merged;
-    }
-};
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-int main() {
-    Solution s;
-    vector<vector<int>> intervals = {{1,3},{2,6},{8,10},{15,18}};
-    vector<vector<int>> ans = s.merge(intervals);
+🔍 What it does:
 
-    cout << "[";
-    for (auto &v : ans) {
-        cout << "[" << v[0] << "," << v[1] << "]";
-    }
-    cout << "]" << endl;
+window.addToCart → makes the function globally accessible (so it can be called from HTML onclick).
 
-    return 0;
-}
+products.find(...) → searches for the product in the products array using its ID.
 
-🧩 Explanation:
+If not found, it simply exits (return).
 
-Sort the intervals by their starting value → ensures we check overlapping ones sequentially.
+It then reads the existing cart data from localStorage.
 
-Use a vector merged to store the final merged intervals.
+localStorage.getItem("cart") returns a JSON string (or null if empty).
 
-For each interval:
+JSON.parse() converts it into a JavaScript array.
 
-If merged is empty or the current interval starts after the last merged one ends → push it as a new interval.
+If empty, it initializes an empty array [].
 
-Else → they overlap, so we update the end of the last merged interval to the maximum end of both.
+========================================================================================
 
-------------------------------------------------------------------------------------------------
 
 
 
