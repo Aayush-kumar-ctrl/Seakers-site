@@ -95,3 +95,4 @@ window.addEventListener("DOMContentLoaded", async () => {
     setTimeout(() => toast.remove(), 2000);
   }
 });
+
