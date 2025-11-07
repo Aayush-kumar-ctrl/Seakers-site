@@ -463,7 +463,59 @@ Shows a success message using the custom showToast() function.
     window.location.reload();
   };
 
+====================================================================================================
 
+// 👤 Clerk Authentication Logic
+const user = Clerk.user;
+Clerk.user gives you the currently logged-in user (if any).
+
+If no one is logged in, Clerk.user will be null or undefined.
+-------------------------------------------------------------------
+
+if (user) {
+  // If user is logged in
+  signInBtn.style.display = "none";
+  signUpBtn.style.display = "none";
+  signOutBtn.style.display = "inline-block";
+} else {
+  // If user is NOT logged in
+  signOutBtn.style.display = "none";
+  signInBtn.onclick = () => Clerk.openSignIn();
+  signUpBtn.onclick = () => Clerk.openSignUp();
+}
+🔍 What happens here:
+The code checks if a user is logged in.
+
+If logged in:
+
+Hide the Sign In and Sign Up buttons (display: none).
+
+Show the Sign Out button (display: inline-block).
+
+If not logged in:
+
+Hide the Sign Out button.
+
+When the user clicks Sign In, it opens Clerk’s sign-in popup (Clerk.openSignIn()).
+
+When they click Sign Up, it opens the sign-up popup (Clerk.openSignUp()).
+
+So the UI updates dynamically depending on the authentication state.
+
+------------------------------------------------------------------------------------
+
+// 🚪 Sign-Out Function, to signout for a logged in user
+signOutBtn.onclick = async () => {
+  await Clerk.signOut();
+  window.location.reload();
+};
+🔍 What happens here:
+This code runs when the user clicks the “Sign Out” button.
+
+Clerk.signOut() logs the user out of their account (it’s asynchronous, so we await it).
+
+After signing out, window.location.reload() reloads the page so that:
+-----------------------------------------------------------------------------
 
 
 
