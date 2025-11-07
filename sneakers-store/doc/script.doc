@@ -518,6 +518,43 @@ After signing out, window.location.reload() reloads the page so that:
 -----------------------------------------------------------------------------
 
 
+  // 🛍️ Render Product Grid, grid display 
+  grid.innerHTML = products
+    .map(
+      (p) => `
+      <div class="product-card">
+        <img src="${p.image}" alt="${p.name}">
+        <h3>${p.name}</h3>
+        <p>₹${p.price}</p>
+        <button onclick="addToCart(${p.id})">Add to Cart 🛒</button>
+      </div>
+    `
+    )
+    .join("");
+
+=================================================================================
+
+// 🛍️ Render Product Grid, grid display
+
+A comment describing what this block does: render the product list into a visual grid.
+
+grid.innerHTML =
+
+Assigns a string of HTML to the innerHTML of the DOM element referenced by the variable grid. 
+This replaces the element’s contents with whatever HTML string follows.
+
+products
+
+An array (expected) of product objects. Each product object likely has properties like id, name, price, and image.
+
+.map(
+
+Calls Array.prototype.map on products. map transforms each product object into something else;
+here it transforms each product into a string of HTML.
+
+
+
+
 
 
 
