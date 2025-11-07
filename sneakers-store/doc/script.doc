@@ -442,6 +442,28 @@ Converts the array back to JSON with JSON.stringify() and saves it to localStora
 Shows a success message using the custom showToast() function.
 ----------------------------------------------------------------------------------------------
 
+// 👤 Clerk Authentication Logic
+  const user = Clerk.user;
+
+  if (user) {
+    // If user is logged in
+    signInBtn.style.display = "none";
+    signUpBtn.style.display = "none";
+    signOutBtn.style.display = "inline-block";
+  } else {
+    // If user is NOT logged in
+    signOutBtn.style.display = "none";
+    signInBtn.onclick = () => Clerk.openSignIn();
+    signUpBtn.onclick = () => Clerk.openSignUp();
+  }
+
+  // 🚪 Sign-Out Function, to signout for a logged in user
+  signOutBtn.onclick = async () => {
+    await Clerk.signOut();
+    window.location.reload();
+  };
+
+
 
 
 
