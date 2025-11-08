@@ -552,7 +552,36 @@ An array (expected) of product objects. Each product object likely has propertie
 Calls Array.prototype.map on products. map transforms each product object into something else;
 here it transforms each product into a string of HTML.
 
+================================================================
 
+ .join("");
+
+  // 🛒 Add to Cart (Stored in LocalStorage)?? browser memory /
+  window.addToCart = (id) => {
+    const product = products.find((p) => p.id === id);
+    if (!product) return;
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+
+-------------------------
+
+.map() returns an array of HTML strings.
+
+.join("") joins them together into one big HTML string (without commas).
+
+This is then inserted into the page using innerHTML.
+-----------------
+window.addToCart = (id) => { ... }
+
+This defines a global function named addToCart.
+
+It’s attached to the window object so it can be called from HTML — for example:
+
+<button onclick="addToCart(3)">Add to Cart</button>
+
+
+When you click this button, the function runs with the product’s id.
 
 
 
