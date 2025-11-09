@@ -583,8 +583,33 @@ It’s attached to the window object so it can be called from HTML — for examp
 
 When you click this button, the function runs with the product’s id.
 
+3️⃣ const product = products.find((p) => p.id === id);
 
+The products array contains all available products.
 
+.find() looks for a product whose id matches the given id.
+
+If it finds one, it returns that product object.
+
+If not found, it returns undefined.
+-------------------------------------------------------
+
+4️⃣ if (!product) return;
+
+This is a guard clause.
+
+If no product was found (i.e., undefined), the function just stops — it doesn’t run the rest of the code.
+
+5️⃣ let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+The cart is stored in the browser’s localStorage.
+
+localStorage.getItem("cart") retrieves the saved cart (if it exists) as a string.
+
+JSON.parse() converts that string back into a JavaScript array/object.
+
+If there’s nothing stored yet (null), then JSON.parse(null) would fail — so the || [] ensures that cart becomes an empty array by default.
+===================================================================
 
 
 
