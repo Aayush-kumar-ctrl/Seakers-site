@@ -11,9 +11,9 @@ This is an asynchronous arrow function.
 Arrow Functions
 
 Arrow functions are a modern ES6 feature.
-🔹 They are often shorter and easier to read, especially for callbacks.
+ They are often shorter and easier to read, especially for callbacks.
 
-✅ Example:
+ Example:
 
 window.addEventListener("click", () => {
   console.log("Clicked!");
@@ -25,7 +25,7 @@ Here, () => { ... } is an arrow function used as an event handler.
 ------------
 
 
-🧠 What’s asynchronous?  here: async ()
+ What’s asynchronous?  here: async ()
 
 JavaScript normally runs line by line (synchronous).
 
@@ -40,7 +40,7 @@ Delays or timers
 Instead of blocking the page while waiting, JavaScript continues running other code — that’s asynchronous behavior.
 ---------------------
 
-🕓 3️⃣ await — Wait for async result
+ await — Wait for async result
 
 You can only use await inside an async function.
 
@@ -64,10 +64,10 @@ await waits for that Promise to resolve (complete).
 
 The code doesn’t block the browser — it just waits inside this function.
 
-🧠 So await makes asynchronous code look like normal synchronous code — easier to read and write.
+ So await makes asynchronous code look like normal synchronous code — easier to read and write.
 
 ---------------------------------
-🔥 In your code:
+ In your code:
 window.addEventListener("DOMContentLoaded", async () => {
   await window.Clerk.load();
 });
@@ -79,15 +79,15 @@ means:
 
 ------------------------------------------------
 
-🧩 The code:
-// 🎯 Get important DOM elements
+ The code:
+//  Get important DOM elements
 const signInBtn = document.getElementById("sign-in-btn");
 const signUpBtn = document.getElementById("sign-up-btn");
 const signOutBtn = document.getElementById("sign-out-btn");
 const checkoutBtn = document.getElementById("checkout-btn");
 const grid = document.getElementById("product-grid");
 
-🔹 Step 1: What is the DOM?
+ Step 1: What is the DOM?
 
 DOM = Document Object Model
 When a web page is loaded, the browser converts the HTML into a JavaScript object structure called the DOM.
@@ -97,16 +97,16 @@ Read or change its content
 Change its color, text, or visibility
 Add click or hover behavior
 
-🔹 Step 2: document.getElementById("...")
+ Step 2: document.getElementById("...")
 
 This method finds and returns a specific HTML element whose id attribute matches the string inside the parentheses.
 
 Example:
 
-🧠 HTML
+ HTML
 <button id="sign-in-btn">Sign In</button>
 
-⚙️ JavaScript
+JavaScript
 const signInBtn = document.getElementById("sign-in-btn");
 
 
@@ -117,19 +117,19 @@ You can now do things like:
 signInBtn.style.color = "red";
 signInBtn.addEventListener("click", () => alert("Signed in!"));
 
-🔹 Step 3: What each line does
+ Step 3: What each line does
 Line	What it does	Example use
 const signInBtn = document.getElementById("sign-in-btn");	Finds the “Sign In” button	Add click event for user login
 const signUpBtn = document.getElementById("sign-up-btn");	Finds the “Sign Up” button	Open registration form
 const signOutBtn = document.getElementById("sign-out-btn");	Finds the “Sign Out” button	Log user out
 const checkoutBtn = document.getElementById("checkout-btn");	Finds the “Checkout” button	Start payment or checkout
 const grid = document.getElementById("product-grid");	Finds the main product grid <div>	Display all products dynamically
-🔹 Step 4: Why we store them in variables
+ Step 4: Why we store them in variables
 
 Instead of writing document.getElementById() again and again,
 we store each element in a variable (signInBtn, grid, etc.) so we can easily use it multiple times later.
 
-✅ Example:
+ Example:
 
 signInBtn.addEventListener("click", () => {
   console.log("Sign in clicked!");
@@ -141,7 +141,7 @@ grid.innerHTML = "<p>Products will load here...</p>";
 This makes the code shorter, cleaner, and faster to execute.
 
 -------------------------------------------------------------------------------------------------
-// 📦 Dummy Product Data (replace with your own or import from products.js)
+//  Dummy Product Data (replace with your own or import from products.js)
   const products = [
     { id: 1, name: "Classic T-Shirt", price: 599, image: "images/tshirt.jpg" },
     { id: 2, name: "Stylish Shoes", price: 1299, image: "images/shoes.jpg" },
@@ -151,17 +151,17 @@ This makes the code shorter, cleaner, and faster to execute.
 
   ];
 
-  // 📦 Dummy Product Data (replace with your own or import from products.js)
-🟢 Explanation:
+  //  Dummy Product Data (replace with your own or import from products.js)
+ Explanation:
 This is just a comment in JavaScript.
 It says:
-👉 The following list of products is dummy data — meaning it’s temporary sample data, not real data from a database or API.
-👉 Later, you can replace this with your own products or import real data from another file (products.js).
+ The following list of products is dummy data — meaning it’s temporary sample data, not real data from a database or API.
+ Later, you can replace this with your own products or import real data from another file (products.js).
 
 ----------------------------------------------------------------------------------------------
 
 const products = [
-🟢 Explanation:
+ Explanation:
 
 const means you’re declaring a constant variable — its reference cannot be changed later.
 
@@ -175,7 +175,7 @@ So, products is an array of product objects.
 -----------------------------------------------------------------------------
 
 { id: 1, name: "Classic T-Shirt", price: 599, image: "images/tshirt.jpg" },
-🟢 Explanation:
+ Explanation:
 Each { ... } is an object representing a single product.
 
 This one product has:
@@ -196,11 +196,11 @@ Final product in the list.
 js
 Copy code
 ];
-🟢 Explanation:
+ Explanation:
 This closes the array started earlier.
 So now, products holds five objects, each representing a product.
 
-✅ In simple terms:
+ In simple terms:
 You have created a list of products where each product has 4 properties:
 id, name, price, and image.
 
@@ -211,7 +211,7 @@ You can use this list to dynamically show products on your webpage — for examp
 this is the tag used for displaying the copyright info
 -----------------------------------------------------------------------
 
-🟢 **Explanation:**  
+**Explanation:**  
 This is a **comment** describing what this section of code does —  
 It handles **user authentication logic** using **Clerk** (to detect if a user is signed in or not and show/hide buttons accordingly).
 
@@ -308,7 +308,7 @@ This block checks if a user is logged in using Clerk.
 -----------------------------------------------------------------------------------
 
  Code:
-// 🛍️ Render Product Grid, grid display 
+//  Render Product Grid, grid display 
 grid.innerHTML = products
   .map(
     (p) => `
@@ -395,7 +395,7 @@ This function is likely defined elsewhere in your code to handle shopping cart l
 This code handles adding products to a shopping cart and checkout actions on an e-commerce site.
 It also uses localStorage to store the cart items — so even if you refresh or close the page, the cart stays saved in your browser.
 
-🛒 addToCart Function
+addToCart Function
 window.addToCart = (id) => {
   const product = products.find((p) => p.id === id);
   if (!product) return;
