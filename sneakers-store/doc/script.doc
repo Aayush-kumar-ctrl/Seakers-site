@@ -609,7 +609,68 @@ JSON.parse() converts that string back into a JavaScript array/object.
 If there’s nothing stored yet (null), then JSON.parse(null) would fail — so the || [] ensures that cart becomes an empty array by default.
 ===================================================================
 
+checkoutBtn.onclick = () => { ... }
 
+This sets up an event handler for the Checkout button.
+
+When the user clicks the checkout button (checkoutBtn), this function will run.
+
+ if (!Clerk.user) { ... }
+
+Clerk here refers to an authentication service (called Clerk.dev
+) that manages user login/signup.
+
+Clerk.user contains the current logged-in user.
+
+If the user is not signed in, then Clerk.user will be null or undefined.
+
+So this line means:
+
+“If the user is not logged in, stop checkout and show a warning message.”
+
+ showToast("Please sign in to proceed to checkout 🛒");
+
+Instead of using a boring alert box, it calls a custom notification function named showToast().
+
+This displays a small popup (toast) message on the screen saying:
+ “Please sign in to proceed to checkout 🛒”
+
+ return;
+
+This stops the function execution immediately, so the next line (checkout redirect) doesn’t happen.
+
+ window.location.href = "checkout.html";
+
+If the user is signed in, then this line executes.
+
+It redirects the browser to the checkout.html page — where the payment or final checkout process happens.
+
+ The Toast Notification Function
+ function showToast(message) { ... }
+
+This defines a small helper function to display messages temporarily on the page.
+
+Let’s go through it:
+
+let toast = document.createElement("div");
+toast.textContent = message;
+toast.className = "toast";
+document.body.appendChild(toast);
+
+
+Creates a new <div> element.
+
+Sets its text to the message passed in.
+
+Adds a CSS class "toast" for styling (probably styled in CSS to appear as a small popup).
+
+Adds this new element to the page (document.body).
+
+setTimeout(() => toast.remove(), 2000);
+
+Waits 2 seconds (2000 ms) and then removes the toast from the screen.
+
+This ensures the toast automatically disappears after showing briefly — just like notifications on mobile apps.
 
 
 */
