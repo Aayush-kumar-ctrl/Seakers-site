@@ -221,7 +221,7 @@ It handles **user authentication logic** using **Clerk** (to detect if a user is
 
 if (user) {
 
-🟢 **Explanation:**  
+ **Explanation:**  
 This checks whether a user exists (i.e., if someone is logged in).  
 
 If `user` is **truthy** (not `null`), then run the code inside this block.
@@ -235,7 +235,7 @@ signUpBtn.style.display = "none";
 signOutBtn.style.display = "inline-block";
 
 
-🟢 Explanation:
+ Explanation:
 When a user is logged in:
 
 The Sign-In button (signInBtn) is hidden → display: none
@@ -243,13 +243,12 @@ The Sign-In button (signInBtn) is hidden → display: none
 The Sign-Up button (signUpBtn) is hidden → display: none
 
 The Sign-Out button (signOutBtn) becomes visible → display: inline-block
-
-✅ Meaning: once logged in, only the Sign-Out option should be visible.
+ Meaning: once logged in, only the Sign-Out option should be visible.
 ---------------------------------------------------------------------------------------
 
 } else {
 
-🟢 **Explanation:**  
+**Explanation:**  
 If the user is **not logged in**, then execute the code inside the `else` block.
 
 ---
@@ -261,7 +260,7 @@ signInBtn.onclick = () => Clerk.openSignIn();
 signUpBtn.onclick = () => Clerk.openSignUp();
 
 
-🟢 Explanation:
+ Explanation:
 If nobody is logged in:
 
 Hide the Sign-Out button.
@@ -277,13 +276,12 @@ So these functions show Clerk’s authentication modal windows.
 -----------------------------------------------------------------------------------------------------
 ```js
 
-// 🚪 Sign-Out Function, to signout for a logged in user
+//  Sign-Out Function, to signout for a logged in user
 signOutBtn.onclick = async () => {
 await Clerk.signOut();
 window.location.reload();
 };
-
-🟢 **Explanation:**  
+ **Explanation:**  
 This sets the **sign-out button’s click action** — even if the user is logged in.
 
 Let’s break it down:
@@ -292,16 +290,16 @@ Let’s break it down:
 
 Inside it:
 
-1️⃣ `await Clerk.signOut();`  
+ `await Clerk.signOut();`  
    → calls Clerk’s `signOut()` function, which logs the user out.  
    → The `await` keyword makes the code **wait** until Clerk finishes signing out (like waiting for a promise to resolve).
 
-2️⃣ `window.location.reload();`  
+ `window.location.reload();`  
    → reloads the entire webpage, so the UI updates immediately (showing sign-in buttons again instead of sign-out).
 
 ---
 
-✅ **In short:**  
+ **In short:**  
 This block checks if a user is logged in using Clerk.  
 - If **logged in** → hide sign-in/up buttons, show sign-out.  
 - If **not logged in** → show sign-in/up buttons, hide sign-out.  
@@ -309,7 +307,7 @@ This block checks if a user is logged in using Clerk.
 
 -----------------------------------------------------------------------------------
 
-🧩 Code:
+ Code:
 // 🛍️ Render Product Grid, grid display 
 grid.innerHTML = products
   .map(
@@ -324,7 +322,7 @@ grid.innerHTML = products
   )
   .join("");
 
-🧠 Step-by-Step Explanation:
+ Step-by-Step Explanation:
 1. grid.innerHTML = ...
 
 grid is a reference to an HTML element on the page (like a <div id="grid">).
@@ -392,7 +390,7 @@ addToCart(1);
 This function is likely defined elsewhere in your code to handle shopping cart logic.
 ----------------------------------------------------------------------------
 
-🧩 Overview
+ Overview
 
 This code handles adding products to a shopping cart and checkout actions on an e-commerce site.
 It also uses localStorage to store the cart items — so even if you refresh or close the page, the cart stays saved in your browser.
@@ -404,7 +402,7 @@ window.addToCart = (id) => {
 
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-🔍 What it does:
+ What it does:
 
 window.addToCart → makes the function globally accessible (so it can be called from HTML onclick).
 
@@ -430,10 +428,10 @@ If empty, it initializes an empty array [].
 Checks if the item is already in the cart.
 If yes → shows a toast message and stops execution.
 
-✅ Adding the Product to Cart
+ Adding the Product to Cart
   cart.push(product);
   localStorage.setItem("cart", JSON.stringify(cart));
-  showToast(`${product.name} added to cart ✅`);
+  showToast(`${product.name} added to cart `);
 };
 Adds (pushes) the product object to the cart array.
 
@@ -442,7 +440,7 @@ Converts the array back to JSON with JSON.stringify() and saves it to localStora
 Shows a success message using the custom showToast() function.
 ----------------------------------------------------------------------------------------------
 
-// 👤 Clerk Authentication Logic
+//  Clerk Authentication Logic
   const user = Clerk.user;
 
   if (user) {
@@ -457,7 +455,7 @@ Shows a success message using the custom showToast() function.
     signUpBtn.onclick = () => Clerk.openSignUp();
   }
 
-  // 🚪 Sign-Out Function, to signout for a logged in user
+  //  Sign-Out Function, to signout for a logged in user
   signOutBtn.onclick = async () => {
     await Clerk.signOut();
     window.location.reload();
@@ -465,7 +463,7 @@ Shows a success message using the custom showToast() function.
 
 ====================================================================================================
 
-// 👤 Clerk Authentication Logic
+//  Clerk Authentication Logic
 const user = Clerk.user;
 Clerk.user gives you the currently logged-in user (if any).
 
@@ -483,7 +481,7 @@ if (user) {
   signInBtn.onclick = () => Clerk.openSignIn();
   signUpBtn.onclick = () => Clerk.openSignUp();
 }
-🔍 What happens here:
+ What happens here:
 The code checks if a user is logged in.
 
 If logged in:
@@ -504,7 +502,7 @@ So the UI updates dynamically depending on the authentication state.
 
 ------------------------------------------------------------------------------------
 
-// 🚪 Sign-Out Function, to signout for a logged in user
+// Sign-Out Function, to signout for a logged in user
 signOutBtn.onclick = async () => {
   await Clerk.signOut();
   window.location.reload();
