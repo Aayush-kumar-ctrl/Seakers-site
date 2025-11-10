@@ -509,7 +509,7 @@ signOutBtn.onclick = async () => {
   await Clerk.signOut();
   window.location.reload();
 };
-🔍 What happens here:
+ What happens here:
 This code runs when the user clicks the “Sign Out” button.
 
 Clerk.signOut() logs the user out of their account (it’s asynchronous, so we await it).
@@ -518,7 +518,7 @@ After signing out, window.location.reload() reloads the page so that:
 -----------------------------------------------------------------------------
 
 
-  // 🛍️ Render Product Grid, grid display 
+  //  Render Product Grid, grid display 
   grid.innerHTML = products
     .map(
       (p) => `
@@ -534,7 +534,7 @@ After signing out, window.location.reload() reloads the page so that:
 
 =================================================================================
 
-// 🛍️ Render Product Grid, grid display
+//Render Product Grid, grid display
 
 A comment describing what this block does: render the product list into a visual grid.
 
@@ -583,7 +583,7 @@ It’s attached to the window object so it can be called from HTML — for examp
 
 When you click this button, the function runs with the product’s id.
 
-3️⃣ const product = products.find((p) => p.id === id);
+ const product = products.find((p) => p.id === id);
 
 The products array contains all available products.
 
@@ -594,13 +594,13 @@ If it finds one, it returns that product object.
 If not found, it returns undefined.
 -------------------------------------------------------
 
-4️⃣ if (!product) return;
+ if (!product) return;
 
 This is a guard clause.
 
 If no product was found (i.e., undefined), the function just stops — it doesn’t run the rest of the code.
 
-5️⃣ let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 The cart is stored in the browser’s localStorage.
 
@@ -610,7 +610,6 @@ JSON.parse() converts that string back into a JavaScript array/object.
 
 If there’s nothing stored yet (null), then JSON.parse(null) would fail — so the || [] ensures that cart becomes an empty array by default.
 ===================================================================
-
 
 
 
