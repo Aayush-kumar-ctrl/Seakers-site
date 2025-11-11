@@ -54,6 +54,30 @@ This object will be sent to the backend.
 
 =========================================================================================================
 
+ Sending the POST request to backend
+const response = await fetch("http://localhost:5000/api/products", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(product)
+});
+
+ Explanation:
+
+Uses fetch() to make a POST request to your backend API endpoint /api/products.
+
+headers tell the server you’re sending JSON data.
+
+body sends the product object as a JSON string.
+
+ On your backend (likely Node + Express), you’ll have something like:
+
+app.post("/api/products", (req, res) => {
+  const newProduct = req.body;  // parsed JSON
+  // save newProduct to database (MongoDB, MySQL, etc.)
+});
+
+=========================================================================================================
+
 
 
 
