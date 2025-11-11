@@ -1,0 +1,43 @@
+/*
+
+1️⃣ Selecting the HTML elements
+const form = document.getElementById("productForm");
+const status = document.getElementById("status");
+
+🔍 What happens here:
+
+document.getElementById("productForm") → selects the <form> element with id="productForm".
+
+document.getElementById("status") → selects the element where you’ll display success/error messages.
+
+=========================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
