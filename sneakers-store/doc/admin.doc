@@ -1,10 +1,10 @@
 /*
 
-1️⃣ Selecting the HTML elements
+Selecting the HTML elements
 const form = document.getElementById("productForm");
 const status = document.getElementById("status");
 
-🔍 What happens here:
+ What happens here:
 
 document.getElementById("productForm") → selects the <form> element with id="productForm".
 
@@ -12,10 +12,19 @@ document.getElementById("status") → selects the element where you’ll display
 
 =========================================================================================================
 
+ Handling the form submission
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
+ Explanation:
 
+When the user clicks “Add Product”, this event listener runs.
 
+e.preventDefault() stops the form from doing its default behavior (which would reload the page).
 
+We handle the submission using JavaScript (AJAX) instead.
+
+=============================================================================
 
 
 
