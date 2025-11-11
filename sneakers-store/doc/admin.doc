@@ -26,6 +26,36 @@ We handle the submission using JavaScript (AJAX) instead.
 
 =============================================================================
 
+Creating the product object
+const product = {
+  name: document.getElementById("name").value,
+  price: Number(document.getElementById("price").value),
+  image: document.getElementById("image").value,
+  description: document.getElementById("description").value
+};
+
+Explanation:
+
+Reads the values entered by the admin into the form fields.
+
+Converts the price to a number (Number(...)) since form inputs return strings.
+
+Packs everything into an object like:
+
+{
+  name: "Air Jordan 1",
+  price: 4999,
+  image: "https://cdn.example.com/jordan1.jpg",
+  description: "Classic high-top sneakers with premium leather."
+}
+
+
+This object will be sent to the backend.
+
+=========================================================================================================
+
+
+
 
 
 
