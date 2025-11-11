@@ -78,10 +78,47 @@ app.post("/api/products", (req, res) => {
 
 =========================================================================================================
 
+Handling server response
+if (response.ok) {
+  status.textContent = "Product added successfully!";
+  form.reset();
+} else {
+  status.textContent = " Failed to add product!";
+}
 
+Explanation:
 
+response.ok is true if status code is 200–299 (successful).
 
+If successful:
 
+Show  success message.
+
+Reset the form (clears inputs).
+
+Otherwise:
+
+Show error message indicating failure (e.g., validation or DB issue)
+
+========================================================================
+
+Handling unexpected errors
+} catch (error) {
+  console.error(error);
+  status.textContent = " Error occurred!";
+}
+
+ Explanation:
+
+If anything fails (e.g., backend not running, network error):
+
+It’s caught here.
+
+Error is printed in browser console.
+
+User sees a  message on screen.
+
+=========================================================================================================
 
 
 
