@@ -21,14 +21,14 @@ const products = [
     description: "Timeless sneakers with the old vintage charm."
   },
    {
-    id: 1,
+    id: 4,
     name: "Daily sunglasses",
     price: 1299,
     image: "./assets/sunglasses.jpg",
     description: "Everyday sunglasses for a casual vintage style."
   },
    {
-    id: 1,
+    id: 5,
     name: "Lenin Shirt",
     price: 2499,
     image: "./assets/sunglasses.jpg",
