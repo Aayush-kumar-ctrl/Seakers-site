@@ -27,6 +27,12 @@ const products = [
     image: "./assets/sunglasses.jpg",
     description: "Stylish old-school sunglasses for the perfect vintage look."
   },
-  
+   {
+    id: 1,
+    name: "Lenin Shirt",
+    price: 2499,
+    image: "./assets/sunglasses.jpg",
+    description: "Stylish Lenin Shirt For Daily Use."
+  },
 ];
 
