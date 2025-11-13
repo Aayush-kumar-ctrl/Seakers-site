@@ -20,6 +20,13 @@ const products = [
     image: "./assets/shoes.jpg",
     description: "Timeless sneakers with the old vintage charm."
   },
+   {
+    id: 1,
+    name: "Daily sunglasses",
+    price: 1299,
+    image: "./assets/sunglasses.jpg",
+    description: "Stylish old-school sunglasses for the perfect vintage look."
+  },
   
 ];
 
