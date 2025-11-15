@@ -22,7 +22,7 @@ body {
   font-size: 14px;
   opacity: 0.9;
   z-index: 9999;
-  animation: fadeInOut 2s ease;
+  animation: fadeInOut 3s ease;
 }
 
 @keyframes fadeInOut {
