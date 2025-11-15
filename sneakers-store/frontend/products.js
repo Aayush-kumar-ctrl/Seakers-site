@@ -62,12 +62,6 @@ const products = [
     image: "./assets/sunglasses.jpg",
     description: "Stylish Lenin Shirt For Daily Use."
   },
-  {
-    id: 5,
-    name: "Lenin Shirt",
-    price: 2499,
-    image: "./assets/sunglasses.jpg",
-    description: "Stylish Lenin Shirt For Daily Use."
-  },
+ 
 ];
 
