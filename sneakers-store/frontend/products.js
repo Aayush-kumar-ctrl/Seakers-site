@@ -35,11 +35,11 @@ const products = [
     description: "Stylish Lenin Shirt For Daily Use."
   },
   {
-    id: 5,
-    name: "Lenin Shirt",
-    price: 2499,
-    image: "./assets/sunglasses.jpg",
-    description: "Stylish Lenin Shirt For Daily Use."
+    id: 6,
+    name: "Gloves",
+    price: 499,
+    image: "./assets/gloves.jpg",
+    description: "Warm and stylish gloves for the winter season."
   },
   {
     id: 5,
