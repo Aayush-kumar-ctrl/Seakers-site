@@ -49,10 +49,10 @@ const products = [
     description: "Cozy scarf to keep you warm and fashionable."
   },
   {
-    id: 5,
-    name: "Lenin Shirt",
+    id: 8,
+    name: "Denim Jeans",
     price: 2499,
-    image: "./assets/sunglasses.jpg",
+    image: "./assets/denimjeans.jpg",
     description: "Stylish Lenin Shirt For Daily Use."
   },
  
