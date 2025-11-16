@@ -42,11 +42,11 @@ const products = [
     description: "Warm and stylish gloves for the winter season."
   },
   {
-    id: 5,
-    name: "Lenin Shirt",
+    id: 7,
+    name: "Scarf",
     price: 2499,
-    image: "./assets/sunglasses.jpg",
-    description: "Stylish Lenin Shirt For Daily Use."
+    image: "./assets/scarf.jpg",
+    description: "Cozy scarf to keep you warm and fashionable."
   },
   {
     id: 5,
