@@ -53,7 +53,7 @@ const products = [
     name: "Denim Jeans",
     price: 2499,
     image: "./assets/denimjeans.jpg",
-    description: "Stylish Lenin Shirt For Daily Use."
+    description: "Classic denim jeans for a timeless look."
   },
  
 ];
