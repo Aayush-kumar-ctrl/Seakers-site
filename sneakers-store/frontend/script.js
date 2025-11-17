@@ -9,6 +9,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   const signUpBtn = document.getElementById("sign-up-btn");
   const signOutBtn = document.getElementById("sign-out-btn");
   const checkoutBtn = document.getElementById("checkout-btn");
+  
   const grid = document.getElementById("product-grid");
 
   // 📦 Dummy Product Data (replace with your own or import from products.js)
@@ -18,6 +19,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     { id: 3, name: "Wrist Watch", price: 899, image: "images/watch.jpg" },
     { id: 4, name: "Denim Jeans", price: 999, image: "images/jeans.jpg" },
     { id: 5, name: "straight fit", price: 2999, image: "images/fitjeans.jpg" },
+    { id: 6, name: "Slim fit", price: 2499, image: "images/slimfitjeans.jpg" },
+
 
 
 
