@@ -62,6 +62,13 @@ const products = [
     image: "./assets/scarf.jpg",
     description: "Warm and stylish scarf for the winter season."
   },
+   {
+    id: 10,
+    name: "Suit",
+    price: 9499,
+    image: "./assets/suit.jpg",
+    description: "Elegant suit for formal occasions with a vintage touch."
+  },
  
 ];
 
