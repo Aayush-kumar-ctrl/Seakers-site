@@ -76,7 +76,12 @@ const products = [
     image: "./assets/boots.jpg",
     description: "Stylish boots for a rugged vintage look."
   },
-  
- 
+   {
+    id: 12,
+    name: "Chelsea Boots",
+    price: 1299,
+    image: "./assets/chelsea-boots.jpg",
+    description: "Classic Chelsea boots for a timeless vintage style."
+  },
 ];
 
