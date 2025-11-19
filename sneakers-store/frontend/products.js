@@ -55,13 +55,5 @@ const products = [
     image: "./assets/denimjeans.jpg",
     description: "Classic denim jeans for a timeless look."
   },
-   {
-    id: 9,
-    name: "Scarf for Winter",
-    price: 2799,
-    image: "./assets/scarf.jpg",
-    description: "Warm and stylish scarf for the winter season."
-  },
-  
 ];
 
