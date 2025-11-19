@@ -69,13 +69,5 @@ const products = [
     image: "./assets/suit.jpg",
     description: "Elegant suit for formal occasions with a vintage touch."
   },
-   {
-    id: 11,
-    name: "Boots",
-    price: 999,
-    image: "./assets/boots.jpg",
-    description: "Stylish boots for a rugged vintage look."
-  },
-  
 ];
 
