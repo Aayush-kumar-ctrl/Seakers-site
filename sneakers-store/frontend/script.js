@@ -74,7 +74,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     cart.push(product);
     localStorage.setItem("cart", JSON.stringify(cart));
 
-    showToast(`${product.name} added to cart ✅`);
+    showToast(`${product.name} product added to cart ✅`);
   };
 
   // ✅ Checkout Button Action
