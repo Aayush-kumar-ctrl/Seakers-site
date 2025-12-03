@@ -68,7 +68,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // Avoid duplicates
     if (cart.find((p) => p.id === id)) {
-      showToast(`${product.name} is already in your cart!`);
+      showToast(`${product.name} is already present in your cart!`);
       return;
     }
     cart.push(product);
