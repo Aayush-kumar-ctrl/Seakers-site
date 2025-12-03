@@ -80,7 +80,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   // ✅ Checkout Button Action
   checkoutBtn.onclick = () => {
     if (!Clerk.user) {
-      showToast("Please sign in to proceed to checkout 🛒");
+      showToast("Please sign in first to proceed to checkout 🛒");
       return;
     }
     window.location.href = "checkout.html";
