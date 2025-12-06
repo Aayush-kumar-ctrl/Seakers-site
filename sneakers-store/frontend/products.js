@@ -48,13 +48,6 @@ const products = [
     image: "./assets/scarf.jpg",
     description: "Cozy scarf to keep you warm and fashionable."
   },
-  {
-    id: 8,
-    name: "Denim Jeans",
-    price: 2499,
-    image: "./assets/denimjeans.jpg",
-    description: "Classic denim jeans for a timeless look."
-  },
   
 ];
 
