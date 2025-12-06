@@ -41,13 +41,7 @@ const products = [
     image: "./assets/gloves.jpg",
     description: "Warm and stylish gloves for the winter season."
   },
-  {
-    id: 7,
-    name: "Scarf",
-    price: 2499,
-    image: "./assets/scarf.jpg",
-    description: "Cozy scarf to keep you warm and fashionable."
-  },
+  
   
 ];
 
