@@ -27,6 +27,13 @@ const products = [
     image: "./assets/sunglasses.jpg",
     description: "Everyday sunglasses for a casual vintage style."
   },
+  {
+    id: 4,
+    name: "Daily sunglasses",
+    price: 1299,
+    image: "./assets/sunglasses.jpg",
+    description: "Everyday sunglasses for a casual vintage style."
+  },
    
 ];
 
