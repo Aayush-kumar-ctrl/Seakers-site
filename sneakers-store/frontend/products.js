@@ -42,10 +42,10 @@ const products = [
     description: " Premium leather jacket for a sophisticated retro look."
   },
    {
-    id: 5,
-    name: "Leather Jacket",
-    price: 6299,
-    image: "./assets/leatherjacket.jpg",
+    id: 6,
+    name: "Denim Jeans",
+    price: 3299,
+    image: "./assets/denimjeans.jpg",
     description: " Premium leather jacket for a sophisticated retro look."
   },
    {
