@@ -49,11 +49,11 @@ const products = [
     description: " Premium leather jacket for a sophisticated retro look."
   },
    {
-    id: 4,
-    name: "Daily sunglasses",
-    price: 1299,
-    image: "./assets/sunglasses.jpg",
-    description: "Everyday sunglasses for a casual vintage style."
+    id: 7,
+    name: "crock Shoes",
+    price: 999,
+    image: "./assets/crocs.jpg",
+    description: " Comfortable croc shoes for a laid-back vintage style."
   },
    
 ];
