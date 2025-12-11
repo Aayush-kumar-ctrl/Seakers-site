@@ -41,6 +41,13 @@ const products = [
     image: "./assets/leatherjacket.jpg",
     description: " Premium leather jacket for a sophisticated retro look."
   },
+   {
+    id: 5,
+    name: "Leather Jacket",
+    price: 6299,
+    image: "./assets/leatherjacket.jpg",
+    description: " Premium leather jacket for a sophisticated retro look."
+  },
    
 ];
 
