@@ -49,6 +49,5 @@ const products = [
     description: " Premium leather jacket for a sophisticated retro look."
   },
   
-  
 ];
 
