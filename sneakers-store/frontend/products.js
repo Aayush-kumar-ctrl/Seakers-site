@@ -48,6 +48,5 @@ const products = [
     image: "./assets/denimjeans.jpg",
     description: " Premium leather jacket for a sophisticated retro look."
   },
-  
 ];
 
