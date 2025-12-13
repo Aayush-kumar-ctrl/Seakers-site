@@ -48,13 +48,7 @@ const products = [
     image: "./assets/denimjeans.jpg",
     description: " Premium leather jacket for a sophisticated retro look."
   },
-   {
-    id: 7,
-    name: "crock Shoes",
-    price: 999,
-    image: "./assets/crocs.jpg",
-    description: " Comfortable croc shoes for a laid-back vintage style."
-  },
+  
    
 ];
 
