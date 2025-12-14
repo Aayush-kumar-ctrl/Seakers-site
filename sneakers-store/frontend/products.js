@@ -63,7 +63,7 @@ const products = [
     description: " Premium leather jacket for a sophisticated retro look."
   },
    {
-    id: 6,
+    id: 7,
     name: "Denim Jeans",
     price: 3299,
     image: "./assets/denimjeans.jpg",
