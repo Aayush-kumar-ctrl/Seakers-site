@@ -62,12 +62,6 @@ const products = [
     image: "./assets/denimjeans.jpg",
     description: " Premium leather jacket for a sophisticated retro look."
   },
-   {
-    id: 7,
-    name: "Denim Jeans",
-    price: 3299,
-    image: "./assets/denimjeans.jpg",
-    description: " Premium leather jacket for a sophisticated retro look."
-  },
+  
 ];
 
