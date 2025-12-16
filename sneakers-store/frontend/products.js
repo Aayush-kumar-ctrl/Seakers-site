@@ -15,10 +15,10 @@ const products = [
   },
   {
     id: 3,
-    name: "rexin Shoes",
-    price: 3999,
-    image: "./assets/shoes.jpg",
-    description: "Timeless sneakers with the old vintage charm."
+    name: "rexin Jackets",
+    price: 9999,
+    image: "./assets/rxinjkt.jpg",
+    description: "Durable rexin jacket with a vintage design for all-weather style."
   },
    
   
