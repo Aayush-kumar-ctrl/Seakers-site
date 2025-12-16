@@ -34,13 +34,6 @@ const products = [
     image: "./assets/sunglasses.jpg",
     description: "Everyday sunglasses for a casual vintage style."
   },
-  {
-    id: 5,
-    name: "Leather Jacket",
-    price: 6299,
-    image: "./assets/leatherjacket.jpg",
-    description: " Premium leather jacket for a sophisticated retro look."
-  },
   
   
 ];
