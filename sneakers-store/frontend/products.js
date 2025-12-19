@@ -35,11 +35,11 @@ const products = [
     description: "Elegant vintage watch to complement your retro style."
   },
    {
-    id: 3,
-    name: "rexin Jackets",
-    price: 9999,
-    image: "./assets/rxinjkt.jpg",
-    description: "Durable rexin jacket with a vintage design for all-weather style."
+    id: 6,
+    name: "chelsea Boots",
+    price: 2999,
+    image: "./assets/chlseabts.jpg",
+    description: "Stylish chelsea boots with a classic retro design."
   },
 ];
 
