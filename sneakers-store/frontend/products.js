@@ -28,11 +28,11 @@ const products = [
     description: "Premium retro leather shoes for a timeless look."
   },
    {
-    id: 3,
-    name: "rexin Jackets",
-    price: 9999,
-    image: "./assets/rxinjkt.jpg",
-    description: "Durable rexin jacket with a vintage design for all-weather style."
+    id: 5,
+    name: "Classic Watch",
+    price: 19999,
+    image: "./assets/claswatch.jpg",
+    description: "Elegant vintage watch to complement your retro style."
   },
    {
     id: 3,
