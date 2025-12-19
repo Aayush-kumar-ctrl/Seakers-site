@@ -41,5 +41,12 @@ const products = [
     image: "./assets/chlseabts.jpg",
     description: "Stylish chelsea boots with a classic retro design."
   },
+   {
+    id: 7,
+    name: "Turtle Neck Sweater",
+    price: 1499,
+    image: "./assets/ttlnckswtr.jpg",
+    description: "Cozy turtle neck sweater for a warm vintage look."
+  },
 ];
 
