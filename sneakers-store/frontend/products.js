@@ -34,13 +34,6 @@ const products = [
     image: "./assets/claswatch.jpg",
     description: "Elegant vintage watch to complement your retro style."
   },
-   {
-    id: 6,
-    name: "chelsea Boots",
-    price: 2999,
-    image: "./assets/chlseabts.jpg",
-    description: "Stylish chelsea boots with a classic retro design."
-  },
    
 ];
 
