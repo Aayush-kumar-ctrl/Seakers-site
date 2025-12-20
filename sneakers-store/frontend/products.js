@@ -27,13 +27,6 @@ const products = [
     image: "./assets/lthrsho.jpg",
     description: "Premium retro leather shoes for a timeless look."
   },
-   {
-    id: 5,
-    name: "Classic Watch",
-    price: 19999,
-    image: "./assets/claswatch.jpg",
-    description: "Elegant vintage watch to complement your retro style."
-  },
    
 ];
 
