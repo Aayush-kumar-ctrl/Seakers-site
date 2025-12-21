@@ -21,13 +21,6 @@ const products = [
     description: "Durable rexin jacket with a vintage design for all-weather style."
   },
    {
-    id: 3,
-    name: "rexin Jackets",
-    price: 9999,
-    image: "./assets/rxinjkt.jpg",
-    description: "Durable rexin jacket with a vintage design for all-weather style."
-  },
-   {
     id: 4,
     name: "rexin Jackets",
     price: 9999,
