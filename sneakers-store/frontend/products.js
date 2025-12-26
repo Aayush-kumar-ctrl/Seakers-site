@@ -46,7 +46,7 @@ const products = [
     name: "chelsea Boots",
     price: 899,
     image: "./assets/rxinjkt.jpg",
-    description: "Durable rexin jacket with a vintage design for all-weather style."
+    description: "Elegant chelsea boots with a timeless retro appeal."
   },
   
 ];
