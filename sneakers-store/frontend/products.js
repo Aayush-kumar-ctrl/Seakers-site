@@ -45,7 +45,7 @@ const products = [
     id: 6,
     name: "chelsea Boots",
     price: 899,
-    image: "./assets/rxinjkt.jpg",
+    image: "./assets/chelseaboots.jpg",
     description: "Elegant chelsea boots with a timeless retro appeal."
   },
   
