@@ -38,7 +38,7 @@ const products = [
     id: 5,
     name: "t shirt",
     price: 499,
-    image: "./assets/rxinjkt.jpg",
+    image: "./assets/tshirts.jpg",
     description: "Comfortable retro t-shirt with classic prints."
   },
   
