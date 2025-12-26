@@ -41,6 +41,13 @@ const products = [
     image: "./assets/tshirts.jpg",
     description: "Comfortable retro t-shirt with classic prints."
   },
+  {
+    id: 6,
+    name: "chelsea Boots",
+    price: 899,
+    image: "./assets/rxinjkt.jpg",
+    description: "Durable rexin jacket with a vintage design for all-weather style."
+  },
   
 ];
 
