@@ -48,6 +48,5 @@ const products = [
     image: "./assets/chelseaboots.jpg",
     description: "Elegant chelsea boots with a timeless retro appeal."
   },
-
 ];
 
