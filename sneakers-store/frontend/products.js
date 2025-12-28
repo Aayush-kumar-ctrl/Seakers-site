@@ -22,10 +22,10 @@ const products = [
   },
    {
     id: 4,
-    name: "rexin Jackets",
-    price: 9999,
-    image: "./assets/rxinjkt.jpg",
-    description: "Durable rexin jacket with a vintage design for all-weather style."
+    name: "Denim Jeans",
+    price: 4999,
+    image: "./assets/denimjeans.jpg",
+    description: "Timeless denim jeans with a retro fit for everyday wear."
   },
   {
     id: 5,
@@ -35,7 +35,7 @@ const products = [
     description: "Classic Chelsea boots with a retro touch for timeless fashion."
   },
   {
-    id: 5,
+    id: 6,
     name: "t shirt",
     price: 499,
     image: "./assets/tshirts.jpg",
