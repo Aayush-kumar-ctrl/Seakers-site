@@ -9,14 +9,14 @@ const products = [
   {
     id: 2,
     name: "leather Jacket",
-    price: 2999,
+    price: 8999,
     image: "./assets/jacket.jpg",
     description: "Classic retro leather jacket for the cool old-school vibe."
   },
   {
     id: 3,
     name: "rexin Jackets",
-    price: 9999,
+    price: 6499,
     image: "./assets/rxinjkt.jpg",
     description: "Durable rexin jacket with a vintage design for all-weather style."
   },
