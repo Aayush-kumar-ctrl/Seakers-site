@@ -48,5 +48,12 @@ const products = [
     image: "./assets/sneakers.jpg",
     description: "Trendy retro sneakers for a stylish and comfortable look."
   },
+  {
+    id: 8,
+    name: "Leather Belt",
+    price: 399,
+    image: "./assets/leatherbelt.jpg",
+    description: "Comfortable retro t-shirt with classic prints."
+  },
 ];
 
