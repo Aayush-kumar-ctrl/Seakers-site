@@ -53,7 +53,16 @@ const products = [
     name: "Leather Belt",
     price: 399,
     image: "./assets/leatherbelt.jpg",
-    description: "Comfortable retro t-shirt with classic prints."
+    description: "Vintage leather belt to complete your retro outfit."
   },
+  {
+    id: 9,
+    name: "retro watch",
+    price: 6999,
+    image: "./assets/retrowatch.jpg",
+    description: "Classic retro watch with timeless design and elegance."
+  },
+  
+
 ];
 
