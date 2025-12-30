@@ -62,13 +62,7 @@ const products = [
     image: "./assets/retrowatch.jpg",
     description: "Classic retro watch with timeless design and elegance."
   },
-  {
-    id: 10,
-    name: "golf shoes",
-    price: 1899,
-    image: "./assets/golf shoes.jpg",
-    description: "Comfortable retro golf shoes for a stylish game on the course."
-  },
+  
 
 ];
 
