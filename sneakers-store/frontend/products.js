@@ -55,14 +55,5 @@ const products = [
     image: "./assets/leatherbelt.jpg",
     description: "Vintage leather belt to complete your retro outfit."
   },
-  {
-    id: 9,
-    name: "retro watch",
-    price: 6999,
-    image: "./assets/retrowatch.jpg",
-    description: "Classic retro watch with timeless design and elegance."
-  },
-  
-
 ];
 
