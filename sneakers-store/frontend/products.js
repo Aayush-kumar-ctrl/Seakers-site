@@ -20,14 +20,7 @@ const products = [
     image: "./assets/rxinjkt.jpg",
     description: "Durable rexin jacket with a vintage design for all-weather style."
   },
-   {
-    id: 4,
-    name: "Denim Jeans",
-    price: 4999,
-    image: "./assets/denimjeans.jpg",
-    description: "Timeless denim jeans with a retro fit for everyday wear."
-  },
-  
+   
   
 ];
 
