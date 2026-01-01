@@ -34,13 +34,7 @@ const products = [
     image: "./assets/chlseaboots.jpg",
     description: "Classic Chelsea boots with a retro touch for timeless fashion."
   },
-  {
-    id: 6,
-    name: "t shirt",
-    price: 499,
-    image: "./assets/tshirts.jpg",
-    description: "Comfortable retro t-shirt with classic prints."
-  },
+  
   
 ];
 
