@@ -41,12 +41,6 @@ const products = [
     image: "./assets/tshirts.jpg",
     description: "Comfortable retro t-shirt with classic prints."
   },
-  {
-    id: 7,
-    name: "sneakers",
-    price: 2499,
-    image: "./assets/sneakers.jpg",
-    description: "Trendy retro sneakers for a stylish and comfortable look."
-  },
+  
 ];
 
