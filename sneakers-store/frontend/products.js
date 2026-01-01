@@ -27,13 +27,6 @@ const products = [
     image: "./assets/denimjeans.jpg",
     description: "Timeless denim jeans with a retro fit for everyday wear."
   },
-  {
-    id: 5,
-    name: "Chlsea Boots",
-    price: 699,
-    image: "./assets/chlseaboots.jpg",
-    description: "Classic Chelsea boots with a retro touch for timeless fashion."
-  },
   
   
 ];
