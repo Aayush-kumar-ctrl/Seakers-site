@@ -20,6 +20,13 @@ const products = [
     image: "./assets/rxinjkt.jpg",
     description: "Durable rexin jacket with a vintage design for all-weather style."
   },
+  {
+    id: 4,
+    name: "leather Jacket",
+    price: 6499,
+    image: "./assets/rxinjkt.jpg",
+    description: "Durable rexin jacket with a vintage design for all-weather style."
+  },
    
   
 ];
