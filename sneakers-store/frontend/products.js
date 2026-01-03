@@ -22,9 +22,9 @@ const products = [
   },
   {
     id: 4,
-    name: "leather Jacket",
-    price: 8999,
-    image: "./assets/rxinjkt.jpg",
+    name: "chinos Pants",
+    price: 999,
+    image: "./assets/leatherjkt.jpg",
     description: "Durable rexin jacket with a vintage design for all-weather style."
   },
    
