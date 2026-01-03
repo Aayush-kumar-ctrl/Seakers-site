@@ -23,7 +23,7 @@ const products = [
   {
     id: 4,
     name: "leather Jacket",
-    price: 6499,
+    price: 8999,
     image: "./assets/rxinjkt.jpg",
     description: "Durable rexin jacket with a vintage design for all-weather style."
   },
