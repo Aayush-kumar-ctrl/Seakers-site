@@ -24,7 +24,7 @@ const products = [
     id: 4,
     name: "chinos Pants",
     price: 999,
-    image: "./assets/leatherjkt.jpg",
+    image: "./assets/chinospantsjkt.jpg",
     description: "Durable rexin jacket with a vintage design for all-weather style."
   },
    
