@@ -48,7 +48,5 @@ const products = [
     image: "./assets/denimjkt.jpg",
     description: "Classic denim jacket with a retro design for a cool and casual look."
   },
-  
-  
 ];
 
