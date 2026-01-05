@@ -62,6 +62,13 @@ const products = [
     image: "./assets/leatherbelt.jpg",
     description: "Durable leather belt with a classic retro style to complete your outfit."
   },
+  {
+    id: 10,
+    name: "sweater",
+    price: 1999,
+    image: "./assets/sweater.jpg",
+    description: "Cozy sweater with a vintage design for warmth and style."
+  },
 
 
 ];
