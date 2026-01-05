@@ -77,6 +77,5 @@ const products = [
     description: "Stylish leather gloves with a retro touch for a sophisticated look."
   },
 
-
 ];
 
