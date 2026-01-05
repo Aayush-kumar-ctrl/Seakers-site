@@ -55,5 +55,14 @@ const products = [
     image: "./assets/denimjcap.jpg",
     description: "Trendy denim cap with a vintage vibe for everyday wear."
   },
+  {
+    id: 9,
+    name: "leather belt",
+    price: 299,
+    image: "./assets/leatherbelt.jpg",
+    description: "Durable leather belt with a classic retro style to complete your outfit."
+  },
+
+
 ];
 
