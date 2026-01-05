@@ -48,5 +48,12 @@ const products = [
     image: "./assets/denimjkt.jpg",
     description: "Classic denim jacket with a retro design for a cool and casual look."
   },
+  {
+    id: 8,
+    name: "denim cap",
+    price: 499,
+    image: "./assets/denimjcap.jpg",
+    description: "Trendy denim cap with a vintage vibe for everyday wear."
+  },
 ];
 
