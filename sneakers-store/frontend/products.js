@@ -81,7 +81,7 @@ const products = [
     name: "sweat shirt",
     price: 1599,
     image: "./assets/sweatshirt.jpg",
-    description: "Stylish leather gloves with a retro touch for a sophisticated look."
+    description: "Comfortable sweatshirt with a vintage design for casual wear."
   },
 
 
