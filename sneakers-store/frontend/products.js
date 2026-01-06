@@ -76,6 +76,14 @@ const products = [
     image: "./assets/leathergloves.jpg",
     description: "Stylish leather gloves with a retro touch for a sophisticated look."
   },
+  {
+    id:13,
+    name: "sweat shirt",
+    price: 1599,
+    image: "./assets/sweatshirt.jpg",
+    description: "Stylish leather gloves with a retro touch for a sophisticated look."
+  },
+
 
 ];
 
