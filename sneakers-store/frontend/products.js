@@ -78,7 +78,6 @@ const products = [
   },
   {
     id:13,
-    name: "sweat shirt",
   },
 
 
