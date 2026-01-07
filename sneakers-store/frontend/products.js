@@ -76,9 +76,6 @@ const products = [
     image: "./assets/leathergloves.jpg",
     description: "Stylish leather gloves with a retro touch for a sophisticated look."
   },
-  {
-    id:13,
-  },
 
 
 ];
