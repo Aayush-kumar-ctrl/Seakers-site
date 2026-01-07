@@ -79,8 +79,6 @@ const products = [
   {
     id:13,
     name: "sweat shirt",
-    price: 1599,
-    image: "./assets/sweatshirt.jpg",
   },
 
 
