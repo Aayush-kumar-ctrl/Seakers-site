@@ -81,7 +81,6 @@ const products = [
     name: "sweat shirt",
     price: 1599,
     image: "./assets/sweatshirt.jpg",
-    description: "Comfortable sweatshirt with a vintage design for casual wear."
   },
 
 
