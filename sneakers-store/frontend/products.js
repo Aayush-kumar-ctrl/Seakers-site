@@ -69,10 +69,6 @@ const products = [
     image: "./assets/sweater.jpg",
     description: "Cozy sweater with a vintage design for warmth and style."
   },
-  {
-    id:11,
-    name: "leather gloves",
-  },
 
 
 ];
