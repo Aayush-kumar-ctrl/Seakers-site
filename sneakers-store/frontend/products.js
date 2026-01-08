@@ -74,7 +74,6 @@ const products = [
     name: "leather gloves",
     price: 599,
     image: "./assets/leathergloves.jpg",
-    description: "Stylish leather gloves with a retro touch for a sophisticated look."
   },
 
 
