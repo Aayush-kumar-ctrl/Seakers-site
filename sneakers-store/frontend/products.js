@@ -73,7 +73,6 @@ const products = [
     id:11,
     name: "leather gloves",
     price: 599,
-    image: "./assets/leathergloves.jpg",
   },
 
 
