@@ -66,7 +66,6 @@ const products = [
     id: 10,
     name: "sweater",
     price: 1999,
-    description: "Cozy sweater with a vintage design for warmth and style."
   },
 ];
 
