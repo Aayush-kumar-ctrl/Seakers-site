@@ -62,9 +62,6 @@ const products = [
     image: "./assets/leatherbelt.jpg",
     description: "Durable leather belt with a classic retro style to complete your outfit."
   },
-  {
-    id: 10,
-    name: "sweater",
-  },
+  
 ];
 
