@@ -59,7 +59,6 @@ const products = [
     id: 9,
     name: "leather belt",
     price: 299,
-    image: "./assets/leatherbelt.jpg",
   },
   
 ];
