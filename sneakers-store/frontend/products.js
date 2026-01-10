@@ -55,9 +55,6 @@ const products = [
     image: "./assets/denimjcap.jpg",
     description: "Trendy denim cap with a vintage vibe for everyday wear."
   },
-  {
-    id: 9,
-  },
   
 ];
 
