@@ -53,7 +53,6 @@ const products = [
     name: "denim cap",
     price: 499,
     image: "./assets/denimjcap.jpg",
-    description: "Trendy denim cap with a vintage vibe for everyday wear."
   },
   
 ];
