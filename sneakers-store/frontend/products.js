@@ -51,7 +51,6 @@ const products = [
   {
     id: 8,
     name: "denim cap",
-    image: "./assets/denimjcap.jpg",
   },
   
 ];
