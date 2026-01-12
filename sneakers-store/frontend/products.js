@@ -48,6 +48,13 @@ const products = [
     image: "./assets/denimjkt.jpg",
     description: "Classic denim jacket with a retro design for a cool and casual look."
   },
+  {
+    id: 8,
+    name: "denim jacket",
+    price: 4499,
+    image: "./assets/denimjkt.jpg",
+    description: "Classic denim jacket with a retro design for a cool and casual look."
+  },
   
 ];
 
