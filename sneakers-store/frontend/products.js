@@ -51,8 +51,8 @@ const products = [
   {
     id: 8,
     name: "formal shoes",
-    price: 4499,
-    image: "./assets/denimjkt.jpg",
+    price: 5499,
+    image: "./assets/formal-shoes.jpg",
     description: "Classic denim jacket with a retro design for a cool and casual look."
   },
   
