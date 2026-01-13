@@ -52,7 +52,6 @@ const products = [
     id: 8,
     name: "formal shoes",
     price: 5499,
-    image: "./assets/formal-shoes.jpg",
   },
   
 ];
