@@ -45,7 +45,6 @@ const products = [
     id: 7,
     name: "denim jacket",
     price: 4499,
-    image: "./assets/denimjkt.jpg",
   },
   
 ];
