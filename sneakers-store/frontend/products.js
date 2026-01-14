@@ -41,9 +41,7 @@ const products = [
     image: "./assets/denimjeans.jpg",
     description: "Timeless denim jeans with a vintage wash for a laid-back retro style."
   },
-  {
-    id: 7,
-  },
+  
   
 ];
 
