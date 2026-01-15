@@ -39,7 +39,6 @@ const products = [
     name: "denim Jeans",
     price: 2499,
     image: "./assets/denimjeans.jpg",
-    description: "Timeless denim jeans with a vintage wash for a laid-back retro style."
   },
   
   
