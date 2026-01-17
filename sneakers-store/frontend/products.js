@@ -34,6 +34,9 @@ const products = [
     image: "./assets/formalpantsjkt.jpg",
     description: "Elegant formal pants with a classic retro touch for special occasions."
   },
+  {
+    id: 6,
+  },
   
 ];
 
