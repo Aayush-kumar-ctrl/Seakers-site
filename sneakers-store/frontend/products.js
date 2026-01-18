@@ -42,6 +42,5 @@ const products = [
     description: "Elegant formal pants with a classic retro touch for special occasions."
   },
   
-  
 ];
 
