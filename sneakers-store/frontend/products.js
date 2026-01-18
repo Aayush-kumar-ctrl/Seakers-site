@@ -37,7 +37,6 @@ const products = [
   {
     id: 6,
     name : "Denim Jeans",
-    price: 2499,
   },
 
 ];
