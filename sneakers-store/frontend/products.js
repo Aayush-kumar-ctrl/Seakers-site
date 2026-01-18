@@ -41,6 +41,13 @@ const products = [
     image: "./assets/formalpantsjkt.jpg",
     description: "Elegant formal pants with a classic retro touch for special occasions."
   },
+  {
+    id: 7,
+    name : "Denim Jeans",
+    price: 2499,
+    image: "./assets/formalpantsjkt.jpg",
+    description: "Elegant formal pants with a classic retro touch for special occasions."
+  },
   
 ];
 
