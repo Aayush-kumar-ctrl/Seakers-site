@@ -37,6 +37,8 @@ const products = [
   {
     id: 6,
     name: "Sneakers",
+    price: 3999,
+
 
   },
   
