@@ -36,6 +36,8 @@ const products = [
   },
   {
     id: 6,
+    name: "Sneakers",
+
   },
   
 
