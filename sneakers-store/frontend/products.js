@@ -42,7 +42,7 @@ const products = [
     description: "Trendy retro sneakers for a stylish and comfortable look."
   },
   {
-    id: 6,
+    id: 7,
     name: "Casual Shoes",
     price: 2999,
   },
