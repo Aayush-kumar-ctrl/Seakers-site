@@ -46,7 +46,7 @@ const products = [
     name: "Casual Shoes",
     price: 2999,
     image: "./assets/casualshoes.jpg",
-
+    description: "Trendy retro sneakers for a stylish and comfortable look."
   },
   
 
