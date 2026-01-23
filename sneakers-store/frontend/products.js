@@ -67,9 +67,7 @@ const products = [
     name: "formal Shirt",
     price: 599,
     image: "./assets/formalshirt.jpg",
-
-
-
+    description: "Elegant formal shirt with a classic retro touch for special occasions."
   },
 
 
