@@ -65,6 +65,8 @@ const products = [
   {
     id: 10,
     name: "formal Shirt",
+    price: 599,
+
 
   },
 
