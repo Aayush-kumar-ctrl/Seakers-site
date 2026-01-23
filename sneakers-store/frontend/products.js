@@ -62,6 +62,10 @@ const products = [
     image: "./assets/wristwatch.jpg",
     description: "Classic wrist watch with a vintage design for timeless style."
   },
+  {
+    id: 9,
+  },
+
 
 ];
 
