@@ -63,7 +63,6 @@ const products = [
     description: "Classic wrist watch with a vintage design for timeless style."
   },
   {
-    id: 10,
    },
   
 
