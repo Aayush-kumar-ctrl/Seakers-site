@@ -60,7 +60,6 @@ const products = [
     name: "Wrist Watch",
     price: 2599,
     image: "./assets/wristwatch.jpg",
-    description: "Classic wrist watch with a vintage design for timeless style."
   },
 
 
