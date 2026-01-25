@@ -58,7 +58,6 @@ const products = [
   {
     id: 9,
     name: "Wrist Watch",
-    price: 2599,
   },
 
 
