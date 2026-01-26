@@ -60,7 +60,7 @@ const products = [
     name: "chino pants",
     price:4499,
     image: "./assets/chinopants.jpg",
-
+    description: "Comfortable chinos pants with a retro flair for everyday wear."
   },
 
 
