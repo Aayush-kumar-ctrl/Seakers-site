@@ -57,7 +57,9 @@ const products = [
   },
   {
     id: 9,
-    name: "Formal Shoes",
+    name: "chino pants",
+    price:4499,
+
   },
 
 
