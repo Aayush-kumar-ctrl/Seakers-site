@@ -58,7 +58,6 @@ const products = [
   {
     id: 9,
     name: "chino pants",
-    image: "./assets/chinopants.jpg",
   },
 
 
