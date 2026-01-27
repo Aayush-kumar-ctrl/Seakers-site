@@ -58,7 +58,6 @@ const products = [
   {
     id: 9,
     name: "chino pants",
-    price:4499,
     image: "./assets/chinopants.jpg",
   },
 
