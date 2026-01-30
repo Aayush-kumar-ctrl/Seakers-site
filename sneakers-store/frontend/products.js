@@ -67,7 +67,6 @@ const products = [
     name: "Formal Shoes",
     price:4499,
     image: "./assets/formalshoes.jpg",
-    description: "Elegant formal shoes with a classic retro touch for special occasions."
   },
   
 
