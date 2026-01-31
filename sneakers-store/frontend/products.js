@@ -57,7 +57,6 @@ const products = [
   },
   {
     id: 8,
-    name: "Formal Shoes",
   },
 ];
 
