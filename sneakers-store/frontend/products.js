@@ -60,7 +60,7 @@ const products = [
     name: "Formal pants",
     price:1499,
     image: "./assets/formalpants.jpg",
-    description: "Elegant formal shoes with a classic retro touch for special occasions."
+    description: "Elegant formal pants with a classic retro touch for special occasions."
   },
  
 ];
