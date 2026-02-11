@@ -72,6 +72,9 @@ const products = [
   {
     id: 11,
     name: "Polo T-Shirt",
+    price:699,
+    image: "./assets/Polo T-Shirt.jpg",
+    description: "Comfortable t-shirt with a retro design for casual wear."
   },
  
 ];
