@@ -74,7 +74,14 @@ const products = [
     name: "Polo T-Shirt",
     price:699,
     image: "./assets/Polo T-Shirt.jpg",
-    description: "Comfortable t-shirt with a retro design for casual wear."
+    description: "Comfortable polo t-shirt , elegant fit"
+  },
+  {
+    id: 12,
+    name: "TrackPants",
+    price:1299,
+    image: "./assets/TrackPants.jpg",
+    description: "Comfortable trackpant foe daily use."
   },
  
 ];
