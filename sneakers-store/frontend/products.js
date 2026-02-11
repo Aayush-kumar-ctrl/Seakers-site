@@ -69,6 +69,9 @@ const products = [
     image: "./assets/t-shirt.jpg",
     description: "Comfortable t-shirt with a retro design for casual wear."
   },
+  {
+    id: 11,
+  },
  
 ];
 
