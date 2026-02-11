@@ -81,7 +81,7 @@ const products = [
     name: "TrackPants",
     price:1299,
     image: "./assets/TrackPants.jpg",
-    description: "Comfortable trackpant foe daily use."
+    description: "Comfortable trackpant for daily use."
   },
  
 ];
