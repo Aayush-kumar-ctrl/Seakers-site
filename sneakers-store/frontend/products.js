@@ -71,6 +71,7 @@ const products = [
   },
   {
     id: 11,
+    name: "Polo T-Shirt",
   },
  
 ];
