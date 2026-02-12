@@ -76,7 +76,5 @@ const products = [
     image: "./assets/Polo T-Shirt.jpg",
     description: "Comfortable polo t-shirt , elegant fit"
   },
-  
- 
 ];
 
