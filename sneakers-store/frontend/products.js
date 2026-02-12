@@ -83,6 +83,13 @@ const products = [
     image: "./assets/TrackPants.jpg",
     description: "Comfortable trackpant for daily use."
   },
+  {
+    id: 12,
+    name: "TrackPants",
+    price:1299,
+    image: "./assets/TrackPants.jpg",
+    description: "Comfortable trackpant for daily use."
+  },
  
 ];
 
