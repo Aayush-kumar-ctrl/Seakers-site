@@ -62,13 +62,7 @@ const products = [
     image: "./assets/formalpants.jpg",
     description: "Elegant formal pants with a classic retro touch for special occasions."
   },
-  {
-    id: 10,
-    name: "t-shirt",
-    price:499,
-    image: "./assets/t-shirt.jpg",
-    description: "Comfortable t-shirt with a retro design for casual wear."
-  },
+  
   
 ];
 
