@@ -48,9 +48,5 @@ const products = [
     image: "./assets/casualshoes.jpg",
     description: "Trendy retro sneakers for a stylish and comfortable look."
   },
-  
-  
-  
-  
 ];
 
