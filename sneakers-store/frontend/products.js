@@ -34,13 +34,7 @@ const products = [
     image: "./assets/formalpantsjkt.jpg",
     description: "Elegant formal pants with a classic retro touch for special occasions."
   },
-  {
-    id: 6,
-    name: "Sneakers",
-    price: 3999,
-    image: "./assets/sneakers.jpg",
-    description: "Trendy retro sneakers for a stylish and comfortable look."
-  },
+  
   
 ];
 
