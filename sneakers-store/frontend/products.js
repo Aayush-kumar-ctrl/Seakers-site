@@ -48,13 +48,7 @@ const products = [
     image: "./assets/casualshoes.jpg",
     description: "Trendy retro sneakers for a stylish and comfortable look."
   },
-  {
-    id: 8,
-    name: "Formal Shoes",
-    price:4499,
-    image: "./assets/formalshoes.jpg",
-    description: "Elegant formal shoes with a classic retro touch for special occasions."
-  },
+  
   
   
   
