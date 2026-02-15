@@ -27,13 +27,7 @@ const products = [
     image: "./assets/chinospantsjkt.jpg",
     description: "Comfortable chinos pants with a retro flair for everyday wear."
   },
-  {
-    id: 5,
-    name: "Formal Pants",
-    price: 1999,
-    image: "./assets/formalpantsjkt.jpg",
-    description: "Elegant formal pants with a classic retro touch for special occasions."
-  },
+  
   
   
 ];
