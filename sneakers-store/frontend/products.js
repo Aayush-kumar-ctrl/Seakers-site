@@ -6,13 +6,6 @@ const products = [
     image: "./assets/sunglasses.jpg",
     description: "Stylish old-school sunglasses for the perfect vintage look."
   },
-  {
-    id: 2,
-    name: "leather Jacket",
-    price: 8999,
-    image: "./assets/jacket.jpg",
-    description: "Classic retro leather jacket for the cool old-school vibe."
-  },
  
   
   
