@@ -13,13 +13,6 @@ const products = [
     image: "./assets/jacket.jpg",
     description: "Classic retro leather jacket for the cool old-school vibe."
   },
-  {
-    id: 3,
-    name: "rexin Jackets",
-    price: 6499,
-    image: "./assets/rxinjkt.jpg",
-    description: "Durable rexin jacket with a vintage design for all-weather style."
-  },
  
   
   
