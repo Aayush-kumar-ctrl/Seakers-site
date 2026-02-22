@@ -19,7 +19,7 @@ form.addEventListener("submit", async (e) => {
     });
 
     if (response.ok) {
-      status.textContent = "✅ Product added successfully!";
+      status.textContent = "✅ Product added";
       form.reset();
     } else {
       status.textContent = "❌ Failed to add product!";
