@@ -47,17 +47,17 @@ const products = [
     image: "https://via.placeholder.com/200x200.png?text=Air Sneakers Pro",
     description: "Air Sneakers For Daily Comfortable use ."
   },
-   {
-    id: 4,
-    name: "Air Sneakers Pro",
-    brand: "Old Skool",
-    price: 150,
-    size: [6, 7, 8, 9, 10, 11],
-    color: "Red/Black",
+  {
+    id: 5,
+    name: "Classic Leather Jacket",
+    brand: "Urban Edge",
+    price: 199,
+    size: ["S", "M", "L", "XL", "XXL"],
+    color: "Black",
     stock: 20,
-    rating: 4.5,
-    image: "https://via.placeholder.com/200x200.png?text=Air Sneakers Pro",
-    description: "Air Sneakers For Daily Comfortable use ."
-  }
+    rating: 4.6,
+    image: "https://via.placeholder.com/200x200.png?text=Classic+Leather+Jacket",
+    description: "Premium quality leather jacket designed for style, comfort, and durability. Perfect for casual and semi-formal wear."
+},
 ];
 
