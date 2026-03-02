@@ -46,6 +46,18 @@ const products = [
     rating: 4.5,
     image: "https://via.placeholder.com/200x200.png?text=Air Sneakers Pro",
     description: "Air Sneakers For Daily Comfortable use ."
+  },
+   {
+    id: 4,
+    name: "Air Sneakers Pro",
+    brand: "Old Skool",
+    price: 150,
+    size: [6, 7, 8, 9, 10, 11],
+    color: "Red/Black",
+    stock: 20,
+    rating: 4.5,
+    image: "https://via.placeholder.com/200x200.png?text=Air Sneakers Pro",
+    description: "Air Sneakers For Daily Comfortable use ."
   }
 ];
 
