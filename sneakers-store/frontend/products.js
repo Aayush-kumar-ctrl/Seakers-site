@@ -35,18 +35,5 @@ const products = [
     image: "https://via.placeholder.com/200x200.png?text=TrailBlaze+Pro",
     description: "Rugged trail running shoes with extra grip and ankle support for off-road runs."
   },
-  {
-    id: 4,
-    name: "Air Sneakers Pro",
-    brand: "Old Skool",
-    price: 150,
-    size: [6, 7, 8, 9, 10, 11],
-    color: "Red/Black",
-    stock: 20,
-    rating: 4.5,
-    image: "https://via.placeholder.com/200x200.png?text=Air Sneakers Pro",
-    description: "Air Sneakers For Daily Comfortable use ."
-  },
- 
 ];
 
