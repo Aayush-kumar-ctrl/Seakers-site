@@ -23,17 +23,6 @@ const products = [
     image: "https://via.placeholder.com/200x200.png?text=StreetFlex+High",
     description: "Stylish high-top sneakers for urban adventures with durable rubber sole."
   },
-  {
-    id: 3,
-    name: "TrailBlaze Pro",
-    brand: "MountainFeet",
-    price: 139.99,
-    size: [6, 7, 8, 9, 10, 11],
-    color: "Blue/Orange",
-    stock: 10,
-    rating: 4.7,
-    image: "https://via.placeholder.com/200x200.png?text=TrailBlaze+Pro",
-    description: "Rugged trail running shoes with extra grip and ankle support for off-road runs."
-  },
+  
 ];
 
