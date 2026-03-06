@@ -35,18 +35,7 @@ const products = [
     image: "https://via.placeholder.com/200x200.png?text=CloudStep+Trainer",
     description: "High-performance training shoes with soft cushioning and strong grip."
   },
-  {
-    id: 4,
-    name: "Velocity Boost",
-    brand: "RunSphere",
-    price: 159.99,
-    size: [6, 7, 8, 9, 10, 11, 12],
-    color: "Neon Green/Black",
-    stock: 20,
-    rating: 4.7,
-    image: "https://via.placeholder.com/200x200.png?text=Velocity+Boost",
-    description: "Advanced running shoes designed for speed, flexibility, and shock absorption."
-  },
+ 
   
 ];
 
