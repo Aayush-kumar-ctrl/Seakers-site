@@ -23,18 +23,6 @@ const products = [
     image: "https://via.placeholder.com/200x200.png?text=StreetFlex+Classic",
     description: "Comfortable everyday sneakers with durable rubber sole and modern street style."
   },
-  {
-    id: 3,
-    name: "CloudStep Trainer",
-    brand: "PeakMotion",
-    price: 149.99,
-    size: [7, 8, 9, 10, 11, 12],
-    color: "Blue/Grey",
-    stock: 18,
-    rating: 4.6,
-    image: "https://via.placeholder.com/200x200.png?text=CloudStep+Trainer",
-    description: "High-performance training shoes with soft cushioning and strong grip."
-  },
  
   
 ];
