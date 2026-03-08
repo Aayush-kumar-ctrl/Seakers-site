@@ -33,28 +33,6 @@ const products = [
   rating: 4.3,
   image: "https://via.placeholder.com/200x200.png?text=UrbanFlex+Trainer"
 },
-{
-  id: 4,
-  name: "TrailBlaze X",
-  brand: "PeakStride",
-  price: 159.99,
-  size: [7, 8, 9, 10, 11, 12],
-  color: "Green/Black",
-  stock: 22,
-  rating: 4.7,
-  image: "https://via.placeholder.com/200x200.png?text=TrailBlaze+X"
-},
-{
-  id: 5,
-  name: "Velocity Dash",
-  brand: "RapidRun",
-  price: 134.99,
-  size: [6, 7, 8, 9, 10, 11, 12],
-  color: "Black/Yellow",
-  stock: 27,
-  rating: 4.4,
-  image: "https://via.placeholder.com/200x200.png?text=Velocity+Dash"
-},
 
   
 ];
