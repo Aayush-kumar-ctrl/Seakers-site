@@ -55,17 +55,7 @@ const products = [
   rating: 4.4,
   image: "https://via.placeholder.com/200x200.png?text=Velocity+Dash"
 },
-{
-  id: 6,
-  name: "FusionSprint",
-  brand: "PowerStep",
-  price: 142.99,
-  size: [7, 8, 9, 10, 11],
-  color: "White/Red",
-  stock: 20,
-  rating: 4.5,
-  image: "https://via.placeholder.com/200x200.png?text=FusionSprint"
-},
+
   
 ];
 
