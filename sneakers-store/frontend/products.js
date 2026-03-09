@@ -54,6 +54,17 @@ const products = [
   stock: 15,
   rating: 4.6,
   image: "https://via.placeholder.com/200x200.png?text=TrailBlazer+XT"
+},
+{
+  id: 6,
+  name: "CityStride Lite",
+  brand: "UrbanWalk",
+  price: 109.99,
+  size: [6, 7, 8, 9, 10],
+  color: "White/Blue",
+  stock: 25,
+  rating: 4.2,
+  image: "https://via.placeholder.com/200x200.png?text=CityStride+Lite"
 },  
   
 ];
