@@ -33,7 +33,17 @@ const products = [
   rating: 4.3,
   image: "https://via.placeholder.com/200x200.png?text=UrbanFlex+Trainer"
 },
-
+{
+  id: 4,
+  name: "SpeedRunner Pro",
+  brand: "RunFast",
+  price: 129.99,
+  size: [6, 7, 8, 9, 10, 11],
+  color: "Black/Red",
+  stock: 22,
+  rating: 4.5,
+  image: "https://via.placeholder.com/200x200.png?text=SpeedRunner+Pro"
+},
   
 ];
 
