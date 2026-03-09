@@ -44,6 +44,17 @@ const products = [
   rating: 4.5,
   image: "https://via.placeholder.com/200x200.png?text=SpeedRunner+Pro"
 },
+{
+  id: 5,
+  name: "TrailBlazer XT",
+  brand: "MountainGear",
+  price: 139.99,
+  size: [7, 8, 9, 10, 11, 12],
+  color: "Brown/Green",
+  stock: 15,
+  rating: 4.6,
+  image: "https://via.placeholder.com/200x200.png?text=TrailBlazer+XT"
+},  
   
 ];
 
