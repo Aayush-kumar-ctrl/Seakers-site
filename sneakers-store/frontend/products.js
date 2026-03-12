@@ -22,17 +22,6 @@ const products = [
   rating: 4.6,
   image: "https://via.placeholder.com/200x200.png?text=SkyRunner+Pro"
 },
-{
-  id: 3,
-  name: "UrbanFlex Trainer",
-  brand: "MetroKicks",
-  price: 119.99,
-  size: [6, 7, 8, 9, 10, 11],
-  color: "Grey/Orange",
-  stock: 18,
-  rating: 4.3,
-  image: "https://via.placeholder.com/200x200.png?text=UrbanFlex+Trainer"
-},
   
 ];
 
