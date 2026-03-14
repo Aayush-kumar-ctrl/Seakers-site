@@ -44,17 +44,6 @@ const products = [
   rating: 4.5,
   image: "https://via.placeholder.com/200x200.png?text=SkyRunner+Max"
 },
-{
-  id: 5,
-  name: "SkyRunner Lite",
-  brand: "AeroStride",
-  price: 129.99,
-  size: [6, 7, 8, 9, 10, 11],
-  color: "Green/Black",
-  stock: 35,
-  rating: 4.4,
-  image: "https://via.placeholder.com/200x200.png?text=SkyRunner+Lite"
-},  
   
 ];
 
