@@ -22,17 +22,6 @@ const products = [
   rating: 4.6,
   image: "https://via.placeholder.com/200x200.png?text=SkyRunner+Pro"
  },
- {
-  id: 3,
-  name: "SkyRunner Elite",
-  brand: "AeroStride",
-  price: 159.99,
-  size: [6, 7, 8, 9, 10, 11, 12],
-  color: "Red/Black",
-  stock: 25,
-  rating: 4.7,
-  image: "https://via.placeholder.com/200x200.png?text=SkyRunner+Elite"
-},
   
 ];
 
