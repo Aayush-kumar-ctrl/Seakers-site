@@ -11,17 +11,5 @@ const products = [
     image: "https://via.placeholder.com/200x200.png?text=AirZoom+Runner",
     description: "Lightweight running sneakers with breathable mesh upper and responsive cushioning."
   },
-  {
-  id: 2,
-  name: "SkyRunner Pro",
-  brand: "AeroStride",
-  price: 149.99,
-  size: [6, 7, 8, 9, 10, 11, 12],
-  color: "Blue/Black",
-  stock: 30,
-  rating: 4.6,
-  image: "https://via.placeholder.com/200x200.png?text=SkyRunner+Pro"
- },
-  
 ];
 
