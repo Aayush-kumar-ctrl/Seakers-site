@@ -35,6 +35,42 @@ const products = [
     image: "https://via.placeholder.com/200x200.png?text=CloudStep+X",
     description: "Premium sneakers with cloud cushioning technology for maximum comfort."
   },
-
+  {
+    id: 4,
+    name: "SprintEdge",
+    brand: "FastTrack",
+    price: 119.99,
+    size: [6, 7, 8, 9, 10],
+    color: "Blue/Orange",
+    stock: 22,
+    rating: 4.4,
+    image: "https://via.placeholder.com/200x200.png?text=SprintEdge",
+    description: "Lightweight sports shoes designed for speed and agility."
+  },
+  {
+    id: 5,
+    name: "TrailBlazer Max",
+    brand: "HikePro",
+    price: 149.99,
+    size: [7, 8, 9, 10, 11, 12],
+    color: "Green/Black",
+    stock: 15,
+    rating: 4.6,
+    image: "https://via.placeholder.com/200x200.png?text=TrailBlazer+Max",
+    description: "Rugged trail shoes with superior traction and water-resistant build."
+  },
+  {
+    id: 6,
+    name: "Urban Glide",
+    brand: "StreetWear",
+    price: 99.99,
+    size: [6, 7, 8, 9, 10, 11],
+    color: "White/Black",
+    stock: 40,
+    rating: 4.2,
+    image: "https://via.placeholder.com/200x200.png?text=Urban+Glide",
+    description: "Stylish everyday sneakers with smooth cushioning and modern design."
+  },
+  
 ];
 
