@@ -71,6 +71,54 @@ const products = [
     image: "https://via.placeholder.com/200x200.png?text=Urban+Glide",
     description: "Stylish everyday sneakers with smooth cushioning and modern design."
   },
+  {
+  id: 7,
+  name: "Air Flex Pro",
+  brand: "RunX",
+  price: 119.99,
+  size: [7, 8, 9, 10, 11, 12],
+  color: "Blue/White",
+  stock: 35,
+  rating: 4.5,
+  image: "https://via.placeholder.com/200x200.png?text=Air+Flex+Pro",
+  description: "Lightweight running shoes designed for maximum comfort and flexibility."
+},
+{
+  id: 8,
+  name: "Classic Street",
+  brand: "UrbanStep",
+  price: 79.99,
+  size: [6, 7, 8, 9, 10],
+  color: "Black",
+  stock: 50,
+  rating: 4.1,
+  image: "https://via.placeholder.com/200x200.png?text=Classic+Street",
+  description: "Minimalist sneakers perfect for casual everyday wear."
+},
+{
+  id: 9,
+  name: "SportX Runner",
+  brand: "ActiveGear",
+  price: 129.99,
+  size: [7, 8, 9, 10, 11],
+  color: "Red/Black",
+  stock: 28,
+  rating: 4.6,
+  image: "https://via.placeholder.com/200x200.png?text=SportX+Runner",
+  description: "High-performance running shoes with advanced grip and cushioning."
+},
+{
+  id: 10,
+  name: "Flex Knit",
+  brand: "ComfortWear",
+  price: 89.99,
+  size: [6, 7, 8, 9, 10, 11],
+  color: "Grey",
+  stock: 45,
+  rating: 4.3,
+  image: "https://via.placeholder.com/200x200.png?text=Flex+Knit",
+  description: "Breathable knit sneakers designed for all-day comfort."
+},
   
 ];
 
