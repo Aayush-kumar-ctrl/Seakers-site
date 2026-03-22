@@ -131,18 +131,6 @@ const products = [
   image: "https://via.placeholder.com/200x200.png?text=Trail+Blazer",
   description: "Durable outdoor shoes built for rough terrains and hiking."
 },
-{
-  id: 12,
-  name: "Urban Pulse",
-  brand: "StreetWear",
-  price: 94.99,
-  size: [6, 7, 8, 9, 10],
-  color: "White",
-  stock: 38,
-  rating: 4.2,
-  image: "https://via.placeholder.com/200x200.png?text=Urban+Pulse",
-  description: "Trendy sneakers with a clean design for modern street style."
-},
   
 ];
 
