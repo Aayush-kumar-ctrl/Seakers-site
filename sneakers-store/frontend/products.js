@@ -119,18 +119,6 @@ const products = [
   image: "https://via.placeholder.com/200x200.png?text=Flex+Knit",
   description: "Breathable knit sneakers designed for all-day comfort."
 },
-  {
-  id: 11,
-  name: "Trail Blazer",
-  brand: "MountainGo",
-  price: 139.99,
-  size: [8, 9, 10, 11, 12],
-  color: "Brown/Orange",
-  stock: 20,
-  rating: 4.7,
-  image: "https://via.placeholder.com/200x200.png?text=Trail+Blazer",
-  description: "Durable outdoor shoes built for rough terrains and hiking."
-},
   
 ];
 
