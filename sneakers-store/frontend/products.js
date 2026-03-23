@@ -95,18 +95,6 @@ const products = [
   image: "https://via.placeholder.com/200x200.png?text=Classic+Street",
   description: "Minimalist sneakers perfect for casual everyday wear."
 },
-{
-  id: 9,
-  name: "SportX Runner",
-  brand: "ActiveGear",
-  price: 129.99,
-  size: [7, 8, 9, 10, 11],
-  color: "Red/Black",
-  stock: 28,
-  rating: 4.6,
-  image: "https://via.placeholder.com/200x200.png?text=SportX+Runner",
-  description: "High-performance running shoes with advanced grip and cushioning."
-},
 
   
 ];
