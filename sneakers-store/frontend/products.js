@@ -107,18 +107,7 @@ const products = [
   image: "https://via.placeholder.com/200x200.png?text=SportX+Runner",
   description: "High-performance running shoes with advanced grip and cushioning."
 },
-{
-  id: 10,
-  name: "Flex Knit",
-  brand: "ComfortWear",
-  price: 89.99,
-  size: [6, 7, 8, 9, 10, 11],
-  color: "Grey",
-  stock: 45,
-  rating: 4.3,
-  image: "https://via.placeholder.com/200x200.png?text=Flex+Knit",
-  description: "Breathable knit sneakers designed for all-day comfort."
-},
+
   
 ];
 
