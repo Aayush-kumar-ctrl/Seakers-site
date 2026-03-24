@@ -71,18 +71,6 @@ const products = [
     image: "https://via.placeholder.com/200x200.png?text=Urban+Glide",
     description: "Stylish everyday sneakers with smooth cushioning and modern design."
   },
-  {
-  id: 7,
-  name: "Air Flex Pro",
-  brand: "RunX",
-  price: 119.99,
-  size: [7, 8, 9, 10, 11, 12],
-  color: "Blue/White",
-  stock: 35,
-  rating: 4.5,
-  image: "https://via.placeholder.com/200x200.png?text=Air+Flex+Pro",
-  description: "Lightweight running shoes designed for maximum comfort and flexibility."
-},
 
 
   
