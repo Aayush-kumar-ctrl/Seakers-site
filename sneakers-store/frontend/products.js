@@ -83,18 +83,7 @@ const products = [
   image: "https://via.placeholder.com/200x200.png?text=Air+Flex+Pro",
   description: "Lightweight running shoes designed for maximum comfort and flexibility."
 },
-{
-  id: 8,
-  name: "Classic Street",
-  brand: "UrbanStep",
-  price: 79.99,
-  size: [6, 7, 8, 9, 10],
-  color: "Black",
-  stock: 50,
-  rating: 4.1,
-  image: "https://via.placeholder.com/200x200.png?text=Classic+Street",
-  description: "Minimalist sneakers perfect for casual everyday wear."
-},
+
 
   
 ];
