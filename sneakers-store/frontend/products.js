@@ -59,19 +59,6 @@ const products = [
     image: "https://via.placeholder.com/200x200.png?text=TrailBlazer+Max",
     description: "Rugged trail shoes with superior traction and water-resistant build."
   },
-  {
-    id: 6,
-    name: "Urban Glide",
-    brand: "StreetWear",
-    price: 99.99,
-    size: [6, 7, 8, 9, 10, 11],
-    color: "White/Black",
-    stock: 40,
-    rating: 4.2,
-    image: "https://via.placeholder.com/200x200.png?text=Urban+Glide",
-    description: "Stylish everyday sneakers with smooth cushioning and modern design."
-  },
-
 
   
 ];
