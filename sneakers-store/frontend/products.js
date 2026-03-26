@@ -47,18 +47,6 @@ const products = [
     image: "https://via.placeholder.com/200x200.png?text=SprintEdge",
     description: "Lightweight sports shoes designed for speed and agility."
   },
-  {
-    id: 5,
-    name: "TrailBlazer Max",
-    brand: "HikePro",
-    price: 149.99,
-    size: [7, 8, 9, 10, 11, 12],
-    color: "Green/Black",
-    stock: 15,
-    rating: 4.6,
-    image: "https://via.placeholder.com/200x200.png?text=TrailBlazer+Max",
-    description: "Rugged trail shoes with superior traction and water-resistant build."
-  },
 
   
 ];
