@@ -23,18 +23,6 @@ const products = [
     image: "https://via.placeholder.com/200x200.png?text=FlexRun+Pro",
     description: "Durable running shoes with flexible sole and enhanced grip for daily workouts."
   },
-  {
-    id: 3,
-    name: "CloudStep X",
-    brand: "SkyWalk",
-    price: 139.99,
-    size: [7, 8, 9, 10, 11, 12],
-    color: "Grey/White",
-    stock: 18,
-    rating: 4.7,
-    image: "https://via.placeholder.com/200x200.png?text=CloudStep+X",
-    description: "Premium sneakers with cloud cushioning technology for maximum comfort."
-  },
   
 
   
