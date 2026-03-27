@@ -35,18 +35,7 @@ const products = [
     image: "https://via.placeholder.com/200x200.png?text=CloudStep+X",
     description: "Premium sneakers with cloud cushioning technology for maximum comfort."
   },
-  {
-    id: 4,
-    name: "SprintEdge",
-    brand: "FastTrack",
-    price: 119.99,
-    size: [6, 7, 8, 9, 10],
-    color: "Blue/Orange",
-    stock: 22,
-    rating: 4.4,
-    image: "https://via.placeholder.com/200x200.png?text=SprintEdge",
-    description: "Lightweight sports shoes designed for speed and agility."
-  },
+  
 
   
 ];
