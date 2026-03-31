@@ -47,20 +47,6 @@ const products = [
   image: "https://via.placeholder.com/200x200.png?text=Velocity+Boost",
   description: "High-performance running shoes built for speed and maximum energy return."
 },
-{
-  id: 5,
-  name: "TrailBlaze Pro",
-  brand: "AdventureFeet",
-  price: 149.99,
-  size: [7, 8, 9, 10, 11],
-  color: "Green/Black",
-  stock: 15,
-  rating: 4.7,
-  image: "https://via.placeholder.com/200x200.png?text=TrailBlaze+Pro",
-  description: "Rugged trail running shoes with enhanced grip and shock absorption."
-},
-
-  
 
   
 ];
