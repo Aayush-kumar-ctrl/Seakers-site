@@ -23,18 +23,6 @@ const products = [
   image: "https://via.placeholder.com/200x200.png?text=StormFlex+Trainer",
   description: "Durable training sneakers designed for comfort and flexibility during workouts."
 },
-{
-  id: 3,
-  name: "Urban Glide",
-  brand: "MetroKicks",
-  price: 99.99,
-  size: [7, 8, 9, 10, 11, 12],
-  color: "Grey/White",
-  stock: 18,
-  rating: 4.2,
-  image: "https://via.placeholder.com/200x200.png?text=Urban+Glide",
-  description: "Stylish everyday sneakers with cushioned sole and modern street design."
-},
   
 ];
 
