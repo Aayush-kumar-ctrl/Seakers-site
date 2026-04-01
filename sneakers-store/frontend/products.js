@@ -35,19 +35,6 @@ const products = [
   image: "https://via.placeholder.com/200x200.png?text=Urban+Glide",
   description: "Stylish everyday sneakers with cushioned sole and modern street design."
 },
-{
-  id: 4,
-  name: "Velocity Boost",
-  brand: "RunSphere",
-  price: 139.99,
-  size: [6, 7, 8, 9, 10, 11, 12],
-  color: "Blue/Orange",
-  stock: 22,
-  rating: 4.6,
-  image: "https://via.placeholder.com/200x200.png?text=Velocity+Boost",
-  description: "High-performance running shoes built for speed and maximum energy return."
-},
-
   
 ];
 
