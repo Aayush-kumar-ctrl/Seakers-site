@@ -59,18 +59,7 @@ const products = [
   image: "https://via.placeholder.com/200x200.png?text=PeakMotion+Hiker",
   description: "Rugged hiking sneakers built for stability, traction, and outdoor adventures."
 },
-{
-  id: 6,
-  name: "FlexPulse Trainer",
-  brand: "SwiftSneakers",
-  price: 109.99,
-  size: [6, 7, 8, 9, 10, 11],
-  color: "Black/Red",
-  stock: 35,
-  rating: 4.5,
-  image: "https://via.placeholder.com/200x200.png?text=FlexPulse+Trainer",
-  description: "High-performance trainers designed for gym workouts and high-intensity training."
-},
+
   
   
 ];
