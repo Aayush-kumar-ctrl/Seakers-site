@@ -35,19 +35,6 @@ const products = [
   image: "https://via.placeholder.com/200x200.png?text=AeroStride+Runner",
   description: "Lightweight running shoes engineered for speed, breathability, and long-distance comfort."
 },
-{
-  id: 4,
-  name: "UrbanGlide Casual",
-  brand: "SwiftSneakers",
-  price: 79.99,
-  size: [6, 7, 8, 9, 10, 11],
-  color: "White/Gray",
-  stock: 40,
-  rating: 4.2,
-  image: "https://via.placeholder.com/200x200.png?text=UrbanGlide+Casual",
-  description: "Stylish everyday sneakers perfect for casual wear with a soft cushioned sole."
-},
-
   
   
 ];
