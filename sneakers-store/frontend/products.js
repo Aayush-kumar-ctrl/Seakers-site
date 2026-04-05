@@ -47,18 +47,6 @@ const products = [
   image: "https://via.placeholder.com/200x200.png?text=UrbanGlide+Casual",
   description: "Stylish everyday sneakers perfect for casual wear with a soft cushioned sole."
 },
-{
-  id: 5,
-  name: "PeakMotion Hiker",
-  brand: "SwiftSneakers",
-  price: 139.99,
-  size: [7, 8, 9, 10, 11, 12],
-  color: "Brown/Black",
-  stock: 20,
-  rating: 4.6,
-  image: "https://via.placeholder.com/200x200.png?text=PeakMotion+Hiker",
-  description: "Rugged hiking sneakers built for stability, traction, and outdoor adventures."
-},
 
   
   
