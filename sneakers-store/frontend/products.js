@@ -23,12 +23,6 @@ const products = [
   image: "https://via.placeholder.com/200x200.png?text=StormFlex+Trainer",
   description: "Durable training sneakers designed for comfort and flexibility during workouts."
   },
-  {
-  id: 3,
-  name: "AeroStride Runner",
-  brand: "SwiftSneakers",
-  price: 99.99,
-  size: [6, 7, 8, 9, 10, 11],
 
   
   
