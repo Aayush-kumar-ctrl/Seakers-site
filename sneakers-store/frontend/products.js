@@ -29,12 +29,7 @@ const products = [
   brand: "SwiftSneakers",
   price: 99.99,
   size: [6, 7, 8, 9, 10, 11],
-  color: "Gray/Orange",
-  stock: 25,
-  rating: 4.4,
-  image: "https://via.placeholder.com/200x200.png?text=AeroStride+Runner",
-  description: "Lightweight running shoes engineered for speed, breathability, and long-distance comfort."
-},
+
   
   
 ];
