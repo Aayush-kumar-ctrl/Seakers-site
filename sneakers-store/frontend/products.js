@@ -11,18 +11,8 @@ const products = [
     image: "https://via.placeholder.com/200x200.png?text=AirZoom+Runner",
     description: "Lightweight running sneakers with breathable mesh upper and responsive cushioning."
   },
-  {
-  id: 2,
-  name: "StormFlex Trainer",
-  brand: "SwiftSneakers",
-  price: 119.99,
-  size: [6, 7, 8, 9, 10, 11],
-  color: "Black/Blue",
-  stock: 30,
-  rating: 4.3,
-  image: "https://via.placeholder.com/200x200.png?text=StormFlex+Trainer",
-  description: "Durable training sneakers designed for comfort and flexibility during workouts."
-  },
+
+
 
   
   
